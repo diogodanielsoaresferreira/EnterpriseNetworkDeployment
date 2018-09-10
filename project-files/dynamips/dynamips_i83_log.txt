@@ -1,0 +1,22 @@
+Jun 01 22:43:09.134 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 01 22:43:09.134 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 48130.
+Jun 01 22:43:09.171 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 01 22:43:09.172 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR v2/project-files/dynamips 
+Jun 01 22:43:09.172 GENERAL: working_dir=/home/diogof/Desktop/AR v2/project-files/dynamips
+Jun 01 22:43:09.172 HYPERVISOR: exec_cmd: ethsw create SW6 
+Jun 01 22:43:11.054 HYPERVISOR: exec_cmd: nio create_udp udp-be6f32d7-d99f-40d1-a809-ad484d3369b0 10076 127.0.0.1 10077 
+Jun 01 22:43:11.055 HYPERVISOR: exec_cmd: ethsw add_nio SW6 udp-be6f32d7-d99f-40d1-a809-ad484d3369b0 
+Jun 01 22:43:11.061 HYPERVISOR: exec_cmd: ethsw set_access_port SW6 udp-be6f32d7-d99f-40d1-a809-ad484d3369b0 1 
+Jun 01 22:43:11.071 HYPERVISOR: exec_cmd: nio create_udp udp-184a8d1e-0523-4490-bf55-5a218505e45c 10078 127.0.0.1 10079 
+Jun 01 22:43:11.072 HYPERVISOR: exec_cmd: ethsw add_nio SW6 udp-184a8d1e-0523-4490-bf55-5a218505e45c 
+Jun 01 22:43:11.084 HYPERVISOR: exec_cmd: ethsw set_access_port SW6 udp-184a8d1e-0523-4490-bf55-5a218505e45c 1 
+Jun 01 22:43:11.102 HYPERVISOR: exec_cmd: nio create_udp udp-1a078314-13d2-4c88-9c8c-7d3bc2efce4f 10080 127.0.0.1 10081 
+Jun 01 22:43:11.103 HYPERVISOR: exec_cmd: ethsw add_nio SW6 udp-1a078314-13d2-4c88-9c8c-7d3bc2efce4f 
+Jun 01 22:43:11.120 HYPERVISOR: exec_cmd: ethsw set_access_port SW6 udp-1a078314-13d2-4c88-9c8c-7d3bc2efce4f 1 
+Jun 01 22:43:11.125 HYPERVISOR: exec_cmd: nio create_udp udp-4f2f6c58-f958-405d-9daf-e4cebdb5b671 10082 127.0.0.1 10083 
+Jun 01 22:43:11.129 HYPERVISOR: exec_cmd: ethsw add_nio SW6 udp-4f2f6c58-f958-405d-9daf-e4cebdb5b671 
+Jun 01 22:43:11.141 HYPERVISOR: exec_cmd: ethsw set_access_port SW6 udp-4f2f6c58-f958-405d-9daf-e4cebdb5b671 1 
+Jun 01 22:43:24.950 HYPERVISOR: exec_cmd: ethsw delete SW6 
+Jun 01 22:43:25.029 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 01 22:43:25.172 HYPERVISOR: Stopped.
+Jun 01 22:43:25.172 GENERAL: reset done.

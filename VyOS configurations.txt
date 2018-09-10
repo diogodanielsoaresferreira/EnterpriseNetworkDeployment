@@ -1,0 +1,212 @@
+VyOS
+
+##IPv4 Configurations
+
+configure
+
+set interfaces ethernet eth0 address 200.1.0.1/25
+set interfaces ethernet eth1 address 10.10.0.1/16
+
+set protocols ospf area 0 network 10.10.0.1/16
+set protocols ospf area 0 network 10.254.252.44/30
+set protocols ospf parameters router-id 66.66.66.66
+
+
+# Activate dhcp relay
+set service dhcp-relay interface eth0
+set service dhcp-relay server 10.10.0.6
+
+set zone-policy zone OUTSIDE description "Outside"
+set zone-policy zone OUTSIDE interface eth1
+set zone-policy zone DATACENTER description "Datacenter"
+set zone-policy zone DATACENTER interface eth0
+
+set firewall state-policy established action accept
+set firewall state-policy related action accept
+set firewall all-ping enable
+set firewall broadcast-ping disable
+set firewall ipv6-receive-redirects disable
+set firewall ipv6-src-route disable
+set firewall ip-src-route disable
+set firewall log-martians enable
+set firewall receive-redirects disable
+set firewall send-redirects enable
+set firewall source-validation disable
+set firewall syn-cookies enable
+
+
+
+# By default, drop all
+set firewall name OUTSIDE-TO-DATACENTER default-action drop
+
+# Group of internal ip's
+set firewall group network-group INTERNAL_IPS network 10.10.0.0/16
+set firewall group network-group INTERNAL_IPS network 200.1.0.0/25
+
+# Deny to all ip's that are from inside networks
+set firewall name OUTSIDE-TO-DATACENTER rule 50 description 'Deny to inside'
+set firewall name OUTSIDE-TO-DATACENTER rule 50 action drop
+set firewall name OUTSIDE-TO-DATACENTER rule 50 source group INTERNAL_IPS
+
+# Allow ICMP
+set firewall name OUTSIDE-TO-DATACENTER rule 100 description 'Allow ICMP'
+set firewall name OUTSIDE-TO-DATACENTER rule 100 action accept
+set firewall name OUTSIDE-TO-DATACENTER rule 100 protocol icmp
+
+# Group for dhcp ports
+set firewall group port-group DHCP_PORT port 67
+set firewall group port-group DHCP_PORT port 68
+
+# Group for ip's of aveiro
+set firewall group network-group AVEIRO_IPS network 10.0.0.0/11
+set firewall group network-group AVEIRO_IPS network 200.1.1.128/25
+set firewall group network-group AVEIRO_IPS network 192.168.0.0/16
+
+# DHCP for Aveiro
+set firewall name OUTSIDE-TO-DATACENTER rule 200 description "DHCP for aveiro"
+set firewall name OUTSIDE-TO-DATACENTER rule 200 action accept
+set firewall name OUTSIDE-TO-DATACENTER rule 200 protocol udp
+set firewall name OUTSIDE-TO-DATACENTER rule 200 source group AVEIRO_IPS
+set firewall name OUTSIDE-TO-DATACENTER rule 200 source group port-group DHCP_PORTS
+set firewall name OUTSIDE-TO-DATACENTER rule 200 destination address 10.10.0.6 
+set firewall name OUTSIDE-TO-DATACENTER rule 200 destination group port-group DHCP_PORTS
+
+# DNS Private
+set firewall name OUTSIDE-TO-DATACENTER rule 300 description "Allow DNS"
+set firewall name OUTSIDE-TO-DATACENTER rule 300 action accept
+set firewall name OUTSIDE-TO-DATACENTER rule 300 protocol udp
+set firewall name OUTSIDE-TO-DATACENTER rule 300 source group AVEIRO_IPS
+set firewall name OUTSIDE-TO-DATACENTER rule 300 destination address 10.10.0.6
+set firewall name OUTSIDE-TO-DATACENTER rule 300 destination port 53
+
+# DNS Public
+set firewall name OUTSIDE-TO-DATACENTER rule 350 description "Allow public DNS"
+set firewall name OUTSIDE-TO-DATACENTER rule 350 action accept
+set firewall name OUTSIDE-TO-DATACENTER rule 350 protocol udp
+set firewall name OUTSIDE-TO-DATACENTER rule 350 destination address 200.1.0.4
+set firewall name OUTSIDE-TO-DATACENTER rule 350 destination port 53
+
+# Group for http and https ports
+set firewall group port-group HTTP_PORT port 80
+set firewall group port-group HTTP_PORT port 443
+
+# Group for ip's of servers
+set firewall group network-group SERVERS network 200.1.0.3/32
+set firewall group network-group SERVERS network 200.1.0.4/32
+
+# HTTP and HTTPS for external servers
+set firewall name OUTSIDE-TO-DATACENTER rule 400 description "Allow HTTP and HTTPS for external servers"
+set firewall name OUTSIDE-TO-DATACENTER rule 400 action accept
+set firewall name OUTSIDE-TO-DATACENTER rule 400 protocol tcp
+set firewall name OUTSIDE-TO-DATACENTER rule 400 destination group network-group SERVERS
+set firewall name OUTSIDE-TO-DATACENTER rule 400 destination group port-group HTTP_PORT
+
+# HTTP and HTTPS for internal server
+set firewall name OUTSIDE-TO-DATACENTER rule 450 description "Allow HTTP and HTTPS for internal server"
+set firewall name OUTSIDE-TO-DATACENTER rule 450 action accept
+set firewall name OUTSIDE-TO-DATACENTER rule 450 protocol tcp
+set firewall name OUTSIDE-TO-DATACENTER rule 450 source group network-group AVEIRO_IPS
+set firewall name OUTSIDE-TO-DATACENTER rule 450 destination address 10.10.0.6
+set firewall name OUTSIDE-TO-DATACENTER rule 450 destination group port-group HTTP_PORT
+
+set zone-policy zone DATACENTER from OUTSIDE firewall name OUTSIDE-TO-DATACENTER
+
+
+
+# By default, drop all
+set firewall name DATACENTER-TO-OUTSIDE default-action drop
+
+#Allow responses to ICMP
+set firewall name DATACENTER-TO-OUTSIDE rule 100 description 'Accept established-related connections'
+set firewall name DATACENTER-TO-OUTSIDE rule 100 action accept
+set firewall name DATACENTER-TO-OUTSIDE rule 100 state established enable
+set firewall name DATACENTER-TO-OUTSIDE rule 100 state related enable
+
+# Allow SNMP
+set firewall name DATACENTER-TO-OUTSIDE rule 200 description "Allow SNMP"
+set firewall name DATACENTER-TO-OUTSIDE rule 200 action accept
+set firewall name DATACENTER-TO-OUTSIDE rule 200 protocol udp
+set firewall name DATACENTER-TO-OUTSIDE rule 200 source address 10.10.0.6
+set firewall name DATACENTER-TO-OUTSIDE rule 200 destination port 161
+
+set zone-policy zone OUTSIDE from DATACENTER firewall name DATACENTER-TO-OUTSIDE
+
+commit
+save
+
+
+
+## IPv6 Configurations
+
+
+set interfaces ethernet eth0 address 2002:A:A:A00::1/64
+set interfaces ethernet eth1 address 2002:A:A:1FFF::2E/126
+
+set protocols ospf area 0.0.0.0 interface eth0
+set protocols ospf area 0.0.0.0 interface eth1
+set protocols ospf parameters router-id 120.120.120.120
+
+
+set interfaces ethernet eth0 ipv6 router-advert send-advert true
+set interfaces ethernet eth1 ipv6 router-advert send-advert true
+
+# By default, drop all
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 default-action drop
+
+# Deny to all ip's that are from inside networks
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 50 description 'Deny to inside'
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 50 action drop
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 50 source group 2002:A:A:A00::/64
+
+# Allow icmpv6
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 100 description "Allow ICMPv6"
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 100 action accept
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 100 protocol icmpv6
+
+# DNS Private
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 300 description "Allow private DNS for ipv6"
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 300 action accept
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 300 protocol udp
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 300 source address 2002:A:A::/48
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 300 destination address 2002:A:A:A00::6
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 300 destination port 53
+
+# DNS Public
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 350 description "Allow public DNS for ipv6"
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 350 action accept
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 350 protocol udp
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 350 destination address 2002:A:A:A00::4
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 350 destination port 53
+
+
+# Group for ipv6's of servers
+set firewall group network-group SERVERSv6 network 2002:A:A:A00::3/32
+set firewall group network-group SERVERSv6 network 
+
+
+# HTTP and HTTPS for external servers
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 400 description "Allow HTTP and HTTPS for external servers one ipv6"
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 400 action accept
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 400 protocol tcp
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 400 destination gaddress 2002:A:A:A00::3/32
+
+# HTTP and HTTPS for external servers
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 401 description "Allow HTTP and HTTPS for external servers two ipv6"
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 401 action accept
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 401 protocol tcp
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 401 destination address 2002:A:A:A00::4/32
+
+# HTTP and HTTPS for internal server
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 450 description "Allow HTTP and HTTPS for internal server"
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 450 action accept
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 450 protocol tcp
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 450 source address 2002:A:A::/48
+set firewall ipv6-name OUTSIDE-TO-DATACENTERv6 rule 450 destination address 2002:A:A:A00::6
+
+
+set zone-policy zone DATACENTER from OUTSIDE firewall ipv6-name OUTSIDE-TO-DATACENTERv6
+
+# By default, drop all
+set firewall ipv6-name DATACENTER-TO-OUTSIDEv6 default-action drop
+
+set zone-policy zone OUTSIDE from DATACENTER firewall name DATACENTER-TO-OUTSIDEv6

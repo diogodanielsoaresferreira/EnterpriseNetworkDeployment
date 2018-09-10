@@ -1,0 +1,75 @@
+May 18 16:52:59.885 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+May 18 16:52:59.885 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 34182.
+May 18 16:52:59.918 HYPERVISOR: exec_cmd: hypervisor version 
+May 18 16:52:59.919 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR v2/project-files/dynamips 
+May 18 16:52:59.919 GENERAL: working_dir=/home/diogof/Desktop/AR v2/project-files/dynamips
+May 18 16:52:59.920 HYPERVISOR: exec_cmd: vm create ACL3-B 4 c3725 
+May 18 16:52:59.920 VM: VM ACL3-B created.
+May 18 16:52:59.920 HYPERVISOR: exec_cmd: vm set_con_tcp_port ACL3-B 5003 
+May 18 16:52:59.921 HYPERVISOR: exec_cmd: c3725 get_mac_addr ACL3-B 
+May 18 16:52:59.922 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:52:59.922 HYPERVISOR: exec_cmd: vm set_idle_pc ACL3-B 0x61b4cb80 
+May 18 16:52:59.923 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:52:59.924 HYPERVISOR: exec_cmd: vm slot_add_binding ACL3-B 2 0 NM-1FE-TX 
+May 18 16:52:59.926 HYPERVISOR: exec_cmd: c3725 set_mac_addr ACL3-B c204.1f25.0000 
+May 18 16:52:59.928 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:52:59.937 HYPERVISOR: exec_cmd: vm slot_add_binding ACL3-B 1 0 NM-16ESW 
+May 18 16:52:59.949 HYPERVISOR: exec_cmd: vm set_nvram ACL3-B 256 
+May 18 16:52:59.951 HYPERVISOR: exec_cmd: vm set_ios ACL3-B /home/diogof/GNS3/images/IOS/c3725-advipservicesk9-mz.124-21.image 
+May 18 16:52:59.953 HYPERVISOR: exec_cmd: vm set_disk0 ACL3-B 1 
+May 18 16:52:59.954 HYPERVISOR: exec_cmd: vm set_config ACL3-B configs/i4_startup-config.cfg 
+May 18 16:53:01.231 HYPERVISOR: exec_cmd: nio create_udp udp-0f11a1b1-0355-45d8-9810-849957d93d13 10015 127.0.0.1 10014 
+May 18 16:53:01.232 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-B 1 0 udp-0f11a1b1-0355-45d8-9810-849957d93d13 
+May 18 16:53:01.232 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:53:01.260 HYPERVISOR: exec_cmd: nio create_udp udp-7e3a0bd4-de70-4b3c-a20e-988765d482d0 10016 127.0.0.1 10017 
+May 18 16:53:01.263 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-B 0 0 udp-7e3a0bd4-de70-4b3c-a20e-988765d482d0 
+May 18 16:53:01.264 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:53:01.278 HYPERVISOR: exec_cmd: nio create_udp udp-c0243b47-cb85-4c0c-bada-7ad7a434a0f2 10018 127.0.0.1 10019 
+May 18 16:53:01.279 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-B 1 4 udp-c0243b47-cb85-4c0c-bada-7ad7a434a0f2 
+May 18 16:53:01.280 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:53:01.318 HYPERVISOR: exec_cmd: nio create_udp udp-6c153fab-b7c2-4db5-a3bc-6a28ea163e80 10022 127.0.0.1 10021 
+May 18 16:53:01.319 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-B 1 3 udp-6c153fab-b7c2-4db5-a3bc-6a28ea163e80 
+May 18 16:53:01.320 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:53:01.331 HYPERVISOR: exec_cmd: nio create_udp udp-7b5171f9-9a56-4454-a290-f3ea7049b84a 10023 127.0.0.1 10024 
+May 18 16:53:01.332 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-B 1 1 udp-7b5171f9-9a56-4454-a290-f3ea7049b84a 
+May 18 16:53:01.332 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:53:01.344 HYPERVISOR: exec_cmd: nio create_udp udp-a282a526-ea74-4eaf-9607-ec3a76ebf2ad 10020 127.0.0.1 10026 
+May 18 16:53:01.345 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-B 0 1 udp-a282a526-ea74-4eaf-9607-ec3a76ebf2ad 
+May 18 16:53:01.345 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:53:01.394 HYPERVISOR: exec_cmd: nio create_udp udp-bc27722f-c039-477b-b33a-ac43c9816287 10028 127.0.0.1 10029 
+May 18 16:53:01.396 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-B 1 5 udp-bc27722f-c039-477b-b33a-ac43c9816287 
+May 18 16:53:01.400 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:53:01.451 HYPERVISOR: exec_cmd: nio create_udp udp-31dfd7ec-55ba-4859-99dc-f959bbebcf47 10036 127.0.0.1 10033 
+May 18 16:53:01.452 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-B 1 6 udp-31dfd7ec-55ba-4859-99dc-f959bbebcf47 
+May 18 16:53:01.453 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:53:01.499 HYPERVISOR: exec_cmd: nio create_udp udp-62b09f07-c88a-4368-a0b1-199bd7a484be 10039 127.0.0.1 10038 
+May 18 16:53:01.501 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-B 1 2 udp-62b09f07-c88a-4368-a0b1-199bd7a484be 
+May 18 16:53:01.505 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:53:02.040 HYPERVISOR: exec_cmd: nio create_udp udp-c6591744-2304-4d35-98b4-a97ad9778cba 10090 127.0.0.1 10091 
+May 18 16:53:02.041 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-B 1 7 udp-c6591744-2304-4d35-98b4-a97ad9778cba 
+May 18 16:53:02.041 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:53:36.478 HYPERVISOR: exec_cmd: vm set_ghost_status ACL3-B 2 
+May 18 16:53:36.478 HYPERVISOR: exec_cmd: vm set_ghost_file ACL3-B c3725-advipservicesk9-mz.124-21.image-128.ghost 
+May 18 16:53:36.479 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 16:53:36.480 HYPERVISOR: exec_cmd: vm start ACL3-B 
+May 18 16:55:43.134 HYPERVISOR: exec_cmd: vm extract_config ACL3-B 
+May 18 17:15:48.776 HYPERVISOR: exec_cmd: vm extract_config ACL3-B 
+May 18 17:23:50.823 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 17:23:50.824 HYPERVISOR: exec_cmd: vm stop ACL3-B 
+May 18 17:23:51.089 VM: VM ACL3-B shutdown.
+May 18 17:23:51.091 HYPERVISOR: exec_cmd: vm extract_config ACL3-B 
+May 18 17:23:53.293 HYPERVISOR: exec_cmd: vm extract_config ACL3-B 
+May 18 17:24:00.680 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 17:24:00.681 HYPERVISOR: exec_cmd: vm start ACL3-B 
+May 18 17:53:25.614 HYPERVISOR: exec_cmd: vm extract_config ACL3-B 
+May 18 17:53:55.245 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 17:53:55.247 HYPERVISOR: exec_cmd: vm stop ACL3-B 
+May 18 17:53:55.523 VM: VM ACL3-B shutdown.
+May 18 17:53:55.525 HYPERVISOR: exec_cmd: vm extract_config ACL3-B 
+May 18 17:53:57.592 HYPERVISOR: exec_cmd: vm get_status ACL3-B 
+May 18 17:53:57.597 HYPERVISOR: exec_cmd: vm extract_config ACL3-B 
+May 18 17:53:57.641 HYPERVISOR: exec_cmd: vm delete ACL3-B 
+May 18 17:53:57.641 VM: VM ACL3-B destroyed.
+May 18 17:53:57.645 HYPERVISOR: exec_cmd: hypervisor stop 
+May 18 17:53:57.792 HYPERVISOR: Stopped.
+May 18 17:53:57.792 GENERAL: reset done.

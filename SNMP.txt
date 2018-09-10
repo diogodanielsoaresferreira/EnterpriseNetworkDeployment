@@ -1,0 +1,245 @@
+v3 Router:
+snmp-server engineID local aaaaaaaaaa
+snmp-server user aveirouser aveirogroup v3 auth sha aveiropass priv des56 encryptionav
+snmp-server group aveirogroup v3 priv
+access-list 10 permit 10.10.0.6
+snmp-server community internalServer RW 10
+
+Server:
+snmpwalk -v3 -c internalServer -a sha -u aveirouser -A aveiropass -X encryptionav -l authpriv 10.10.0.1
+
+
+Scripts:
+(python)
+REQUIREMENTS: pysnmp
+## Diogo Ferreira, 2017
+
+from pysnmp.hlapi import *
+
+# In prodution, this should not be hardcoded!
+user = 'aveirouser'
+authkey = 'aveiropass'
+privkey = 'encryptionav'
+
+ROUTER_IPS=['10.254.252.46', '10.254.252.17', '10.254.252.33', '10.10.0.2', '10.31.0.251', '10.31.0.252', '10.31.0.253', '10.31.0.254']
+
+# Function to get object type from an ip of a router
+def get_all_content(content, ip):
+  return_list = []
+  for (errorIndication,
+       errorStatus,
+       errorIndex,
+       varBinds) in nextCmd(SnmpEngine(),
+                            UsmUserData(user, authKey=authkey, privKey=privkey,
+                                      authProtocol=usmHMACSHAAuthProtocol,
+                                      privProtocol=usmDESPrivProtocol),
+                            UdpTransportTarget((ip, 161)),
+                            ContextData(),
+                            ObjectType(ObjectIdentity(content)),
+                            lexicographicMode=False):
+
+      if errorIndication:
+          print(errorIndication)
+          break
+      elif errorStatus:
+          print('%s at %s' % (errorStatus.prettyPrint(),
+                              errorIndex and varBinds[int(errorIndex) - 1][0] or '?'))
+          break
+      else:
+          for varBind in varBinds:
+              #print(' = '.join([x.prettyPrint() for x in varBind]))
+              #print varBind
+              return_list += [varBind]
+  return return_list
+
+# Currently not working...
+def turn_onoff_interfaces(interface, status, ip):
+  set_gen = setCmd(SnmpEngine(),
+                 UsmUserData(user, authKey=authkey, privKey=privkey,
+                                    authProtocol=usmHMACSHAAuthProtocol,
+                                    privProtocol=usmDESPrivProtocol),
+                 UdpTransportTarget((ip, 161)),
+                 ContextData(),
+                 ObjectType(ObjectIdentity('IF-MIB', 'ifAdminStatus', '%d' % interface), status))
+
+  errorIndication, errorStatus, errorIndex, varBinds = next(set_gen)
+  if errorIndication or errorStatus:
+      print('SNMP error: %s' % errorIndication or errorStatus)
+      return -1
+  else:
+      #print('SNMP succeeded')
+      return 0
+
+# Get arp table of router
+def get_arp_table(router_ip):
+  arp = get_all_content('1.3.6.1.2.1.3.1', router_ip)    
+  arp_table = []
+  for a in arp:
+    first, second = str(a).split("=")
+    second = second.strip()
+    first = first.strip()
+
+    # Check if second value is hexadecimal
+    if len(second)>2 and second[0]=='0' and second[1]:
+      mac = second.strip()
+      ip = ".".join(first.split(".")[-4:]).strip()
+      arp_entry = [ar for ar in arp_table if ar["ip"]==ip][0]
+      arp_entry["mac"] = mac
+
+    else:
+      # Check if second value is ipv4
+      ip = second.split(".")
+      if(len(ip)>1):
+        # Don't to nothing
+        pass
+
+      # Check if second value is number of interface
+      else:
+        arp_ip = ".".join(first.split(".")[-4:]).strip()
+        interface = second.strip()
+
+        arp_table += [{"interface":second.strip(), "ip":arp_ip, "mac":[]}]
+
+  return arp_table
+
+# Get info of all interfaces of a router ip
+def get_info_ip(ip):
+  # Mac
+  macs_unparsed = get_all_content('1.3.6.1.2.1.2.2.1.6', ip)
+  macs = {}
+  for mac in macs_unparsed:
+    first, second = str(mac).split("=")
+    macs.update({first.split(".")[-1].strip(): second.strip()})
+
+
+  # Ports
+  ports_unparsed = get_all_content('1.3.6.1.2.1.2.2.1.2', ip)
+  ports = {}
+  for port in ports_unparsed:
+    first, second = str(port).split("=")
+    ports.update({first.split(".")[-1].strip(): second.strip()})
+
+
+  # Status
+  status_unparsed = get_all_content('1.3.6.1.2.1.2.2.1.8', ip)
+  status = {}
+  for stat in status_unparsed:
+    first, second = str(stat).split("=")
+    status.update({first.split(".")[-1].strip(): second.strip()})
+
+
+  #IP's
+  ips_unparsed = get_all_content('1.3.6.1.2.1.4.20.1.2', ip)
+  ips = {}
+  for ip in ips_unparsed:
+    first, second = str(ip).split("=")
+    if second.strip() in ips:
+      ips.update({second.strip(): ips[second.strip()]+[".".join(first.split(".")[-4:]).strip()]})
+    else:
+      ips.update({second.strip(): [".".join(first.split(".")[-4:]).strip()]})
+
+
+  all_int = []
+  for mac in macs:
+    all_int += [{"number":mac, "mac":macs[mac] if mac in macs else "-", "status":"Down" if status[mac]=="2" else "Up", "port": ports[mac] if mac in ports else "-", "ip":ips[mac] if mac in ips else "-"}]
+
+  return all_int
+
+
+# Get info of routers and arp table
+def get_full_info(ip):
+  info = get_info_ip(ip)
+  arp_table = get_arp_table(ip)
+
+  for i in info:
+    for a in [arp for arp in arp_table if arp["interface"]==i["number"]]:
+      if "arp_table" in i:
+        i["arp_table"] += [{"ip":a["ip"], "mac":a["mac"]}]
+      else:
+        i["arp_table"] = [{"ip":a["ip"], "mac":a["mac"]}]
+
+  return info
+
+# Find mac in routers arp table
+def find_mac(mac):
+  
+  r_list = []
+
+  for ip in ROUTER_IPS:
+    info = get_full_info(ip)
+    for i in info:
+      if "arp_table" in i:
+        for arp in i["arp_table"]:
+          if(arp["mac"]==mac):
+            r_list += [{"id":ip,"ip":arp["ip"], "r_ip": i["ip"],"r_port": i["port"], "r_mac":i["mac"]}]
+
+  return r_list
+
+# Find ip in routers arp table
+def find_ip(find_ip):
+  
+  r_list = []
+  for ip in ROUTER_IPS:
+    info = get_full_info(ip)
+    for i in info:
+      if "arp_table" in i:
+        for arp in i["arp_table"]:
+          if(arp["ip"]==find_ip):
+            r_list += [{"id":ip,"mac":arp["mac"], "r_ip": i["ip"],"r_port": i["port"], "r_mac":i["mac"]}]
+
+  return r_list
+
+if("__main__"):
+  value=-1
+  while value!=9:
+    print ""
+    print "MONITORING OF METALTECH NETWORK"
+    print "-------------------------------"
+    print "1- Get information about the interfaces of a router"
+    print "2- Get information about the arp table of a router"
+    print "3- Get information about the interfaces and arp table of a router"
+    print "4- Get node information by IP"
+    print "5- Get node information by MAC"
+    #print "6- Turn on router interface"
+    #print "7- Turn off router interface"
+    print "9- Exit"
+    print ""
+    value = int(input("Value: "))
+
+    if(value==1):
+      ip = raw_input("Insert IP of router (format: 10.10.0.1): ")
+      ip_t = get_info_ip(ip)
+      for entry in ip_t:
+        print "Port Number "+entry["number"]+", name "+entry["port"]+", Mac "+entry["mac"]+", status "+entry["status"]+" with the ip(s) "+", ".join(entry["ip"])
+    elif(value==2):
+      ip = raw_input("Insert IP of router (format: 10.10.0.1): ")
+      ip_t = get_arp_table(ip)
+      for entry in ip_t:
+        print "Port Number "+entry["interface"]+" connected to the node with ip "+entry["ip"]+" and mac "+entry["mac"]
+        
+    elif(value==3):
+      ip = raw_input("Insert IP of router (format: 10.10.0.1): ")
+      ip_t = get_full_info(ip)
+      for entry in ip_t:
+        print "Port Number "+entry["number"]+", name "+entry["port"]+", Mac "+entry["mac"]+", status "+entry["status"]+" with the ip(s) "+", ".join(entry["ip"])
+        if "arp_table" in entry:
+          for arp in entry["arp_table"]:
+            print "\t"+"Connected to the node with ip "+arp["ip"]+" and mac "+arp["mac"]
+    elif(value==4):
+      ip = raw_input("Insert IP of node (format: 10.10.0.1): ")
+      ip_table = find_ip(ip)
+      for i in ip_table:
+        print "Node MAC: "+i["mac"]
+        print "Connected to router with ip "+i["id"]+" with the mac "+i["r_mac"]+" on the port "+i["r_port"]+" with the ip's "+", ".join(i["r_ip"])
+      if len(ip_table)==0:
+        print "Node not found"
+
+    elif(value==5):
+      mac = raw_input("Insert MAC of node (format: 0x123456789abc): ")
+      mac_table = find_mac(mac)
+      for m in mac_table:
+        print "Node IP: "+m["ip"]
+        print "Connected to router id "+m["id"]+" with the mac "+m["r_mac"]+" on the port "+m["r_port"]+" with the ip's "+", ".join(m["r_ip"])
+      if len(mac_table)==0:
+        print "Node not found"
+

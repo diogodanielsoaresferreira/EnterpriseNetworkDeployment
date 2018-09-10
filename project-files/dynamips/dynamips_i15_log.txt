@@ -1,0 +1,24 @@
+Jun 17 10:29:35.049 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 17 10:29:35.049 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 43438.
+Jun 17 10:29:35.065 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 17 10:29:35.066 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR/project-files/dynamips 
+Jun 17 10:29:35.066 GENERAL: working_dir=/home/diogof/Desktop/AR/project-files/dynamips
+Jun 17 10:29:35.066 HYPERVISOR: exec_cmd: ethsw create SW6 
+Jun 17 10:29:37.290 HYPERVISOR: exec_cmd: nio create_udp udp-f74fec93-2fd5-4dfd-91ec-95cf809fe9eb 10060 127.0.0.1 10061 
+Jun 17 10:29:37.290 HYPERVISOR: exec_cmd: ethsw add_nio SW6 udp-f74fec93-2fd5-4dfd-91ec-95cf809fe9eb 
+Jun 17 10:29:37.303 HYPERVISOR: exec_cmd: ethsw set_access_port SW6 udp-f74fec93-2fd5-4dfd-91ec-95cf809fe9eb 1 
+Jun 17 10:29:37.310 HYPERVISOR: exec_cmd: nio create_udp udp-12c54571-4f23-4830-a98b-af36ffb3d89c 10062 127.0.0.1 10063 
+Jun 17 10:29:37.315 HYPERVISOR: exec_cmd: ethsw add_nio SW6 udp-12c54571-4f23-4830-a98b-af36ffb3d89c 
+Jun 17 10:29:37.319 HYPERVISOR: exec_cmd: ethsw set_access_port SW6 udp-12c54571-4f23-4830-a98b-af36ffb3d89c 1 
+Jun 17 10:29:37.338 HYPERVISOR: exec_cmd: nio create_udp udp-ea834b25-35ca-4d7b-806c-79d0b281eba4 10064 127.0.0.1 10065 
+Jun 17 10:29:37.339 HYPERVISOR: exec_cmd: ethsw add_nio SW6 udp-ea834b25-35ca-4d7b-806c-79d0b281eba4 
+Jun 17 10:29:37.358 HYPERVISOR: exec_cmd: ethsw set_access_port SW6 udp-ea834b25-35ca-4d7b-806c-79d0b281eba4 1 
+Jun 17 10:29:37.367 HYPERVISOR: exec_cmd: nio create_udp udp-8053398e-51ba-4f84-9044-21d11712465c 10066 127.0.0.1 10067 
+Jun 17 10:29:37.373 HYPERVISOR: exec_cmd: ethsw add_nio SW6 udp-8053398e-51ba-4f84-9044-21d11712465c 
+Jun 17 10:29:37.378 HYPERVISOR: exec_cmd: ethsw set_access_port SW6 udp-8053398e-51ba-4f84-9044-21d11712465c 1 
+Jun 17 10:38:52.742 HYPERVISOR: exec_cmd: nio bind_filter udp-ea834b25-35ca-4d7b-806c-79d0b281eba4 2 capture 
+Jun 17 10:38:52.743 HYPERVISOR: exec_cmd: nio setup_filter udp-ea834b25-35ca-4d7b-806c-79d0b281eba4 2 en10mb /home/diogof/Desktop/AR/project-files/captures/SW6_4_to_RA-A_FastEthernet1-1.pcap 
+Jun 17 11:36:45.532 HYPERVISOR: exec_cmd: ethsw delete SW6 
+Jun 17 11:36:45.607 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 17 11:36:45.825 HYPERVISOR: Stopped.
+Jun 17 11:36:45.825 GENERAL: reset done.

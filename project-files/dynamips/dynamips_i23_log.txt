@@ -1,0 +1,12 @@
+Jun 16 18:27:02.101 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Jun 16 18:27:02.102 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 50926.
+Jun 16 18:27:02.115 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 16 18:27:02.119 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\KOIKLO\Desktop\projeto-ar-2017\AR\project-files\dynamips 
+Jun 16 18:27:02.119 GENERAL: working_dir=C:\Users\KOIKLO\Desktop\projeto-ar-2017\AR\project-files\dynamips
+Jun 16 18:27:02.124 HYPERVISOR: exec_cmd: ethsw create SW5 
+Jun 16 18:32:14.125 HYPERVISOR: exec_cmd: nio create_udp udp-8d349ba1-38f2-469b-9801-eafa8187f3af 10001 127.0.0.1 10000 
+Jun 16 18:32:14.134 HYPERVISOR: exec_cmd: ethsw add_nio SW5 udp-8d349ba1-38f2-469b-9801-eafa8187f3af 
+Jun 16 18:32:14.151 HYPERVISOR: exec_cmd: ethsw set_access_port SW5 udp-8d349ba1-38f2-469b-9801-eafa8187f3af 1 
+Jun 16 18:32:17.624 HYPERVISOR: exec_cmd: nio create_udp udp-6e80bc5f-de2e-4544-a97b-c6c61fcb1eb0 10003 127.0.0.1 10002 
+Jun 16 18:32:17.632 HYPERVISOR: exec_cmd: ethsw add_nio SW5 udp-6e80bc5f-de2e-4544-a97b-c6c61fcb1eb0 
+Jun 16 18:32:17.649 HYPERVISOR: exec_cmd: ethsw set_access_port SW5 udp-6e80bc5f-de2e-4544-a97b-c6c61fcb1eb0 1 

@@ -1,0 +1,42 @@
+Jun 01 22:43:08.914 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 01 22:43:08.914 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 47229.
+Jun 01 22:43:08.956 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 01 22:43:08.963 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR v2/project-files/dynamips 
+Jun 01 22:43:08.963 GENERAL: working_dir=/home/diogof/Desktop/AR v2/project-files/dynamips
+Jun 01 22:43:08.975 HYPERVISOR: exec_cmd: vm create RC-A 11 c7200 
+Jun 01 22:43:08.975 VM: VM RC-A created.
+Jun 01 22:43:08.977 HYPERVISOR: exec_cmd: vm set_con_tcp_port RC-A 5010 
+Jun 01 22:43:08.978 HYPERVISOR: exec_cmd: c7200 get_mac_addr RC-A 
+Jun 01 22:43:08.979 HYPERVISOR: exec_cmd: vm get_status RC-A 
+Jun 01 22:43:08.980 HYPERVISOR: exec_cmd: vm slot_add_binding RC-A 0 0 C7200-IO-FE 
+Jun 01 22:43:08.981 HYPERVISOR: exec_cmd: vm set_disk0 RC-A 0 
+Jun 01 22:43:08.982 HYPERVISOR: exec_cmd: vm set_nvram RC-A 512 
+Jun 01 22:43:08.983 HYPERVISOR: exec_cmd: vm set_ram RC-A 512 
+Jun 01 22:43:08.989 HYPERVISOR: exec_cmd: vm get_status RC-A 
+Jun 01 22:43:08.991 HYPERVISOR: exec_cmd: vm set_idle_pc RC-A 0x60608040 
+Jun 01 22:43:08.993 HYPERVISOR: exec_cmd: vm get_status RC-A 
+Jun 01 22:43:08.999 HYPERVISOR: exec_cmd: vm slot_remove_binding RC-A 0 0 
+Jun 01 22:43:09.010 HYPERVISOR: exec_cmd: vm get_status RC-A 
+Jun 01 22:43:09.012 HYPERVISOR: exec_cmd: vm slot_add_binding RC-A 0 0 C7200-IO-2FE 
+Jun 01 22:43:09.014 HYPERVISOR: exec_cmd: c7200 set_mac_addr RC-A ca0b.1f97.0000 
+Jun 01 22:43:09.016 HYPERVISOR: exec_cmd: vm get_status RC-A 
+Jun 01 22:43:09.017 HYPERVISOR: exec_cmd: vm slot_add_binding RC-A 1 0 PA-2FE-TX 
+Jun 01 22:43:09.021 HYPERVISOR: exec_cmd: vm set_ios RC-A /home/diogof/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+Jun 01 22:43:09.031 HYPERVISOR: exec_cmd: vm set_config RC-A configs/i11_startup-config.cfg 
+Jun 01 22:43:10.758 HYPERVISOR: exec_cmd: nio create_udp udp-a3546e7d-806a-4d1d-b6cc-f35cbfe871fd 10048 127.0.0.1 10049 
+Jun 01 22:43:10.759 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RC-A 0 1 udp-a3546e7d-806a-4d1d-b6cc-f35cbfe871fd 
+Jun 01 22:43:10.761 HYPERVISOR: exec_cmd: vm get_status RC-A 
+Jun 01 22:43:10.803 HYPERVISOR: exec_cmd: nio create_udp udp-6b2f44ca-4990-4595-b689-a681364c97b1 10052 127.0.0.1 10053 
+Jun 01 22:43:10.807 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RC-A 0 0 udp-6b2f44ca-4990-4595-b689-a681364c97b1 
+Jun 01 22:43:10.808 HYPERVISOR: exec_cmd: vm get_status RC-A 
+Jun 01 22:43:11.066 HYPERVISOR: exec_cmd: nio create_udp udp-30d9c8a5-bc1b-47f7-bd56-d34fde3385be 10077 127.0.0.1 10076 
+Jun 01 22:43:11.068 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RC-A 1 0 udp-30d9c8a5-bc1b-47f7-bd56-d34fde3385be 
+Jun 01 22:43:11.071 HYPERVISOR: exec_cmd: vm get_status RC-A 
+Jun 01 22:43:24.955 HYPERVISOR: exec_cmd: vm extract_config RC-A 
+Jun 01 22:43:25.607 HYPERVISOR: exec_cmd: vm get_status RC-A 
+Jun 01 22:43:25.614 HYPERVISOR: exec_cmd: vm extract_config RC-A 
+Jun 01 22:43:25.619 HYPERVISOR: exec_cmd: vm delete RC-A 
+Jun 01 22:43:25.619 VM: VM RC-A destroyed.
+Jun 01 22:43:25.622 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 01 22:43:25.971 HYPERVISOR: Stopped.
+Jun 01 22:43:25.971 GENERAL: reset done.

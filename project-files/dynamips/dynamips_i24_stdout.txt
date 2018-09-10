@@ -1,0 +1,2 @@
+vm_mmap_open_file: unable to open file 'c3725_i18_rom' (No such file or directory)
+vm_mmap_open_file: unable to open file 'c3725_i18_rom' (No such file or directory)

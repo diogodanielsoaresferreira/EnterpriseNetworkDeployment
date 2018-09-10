@@ -1,0 +1,22 @@
+Jun 17 10:29:34.905 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 17 10:29:34.905 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 57200.
+Jun 17 10:29:34.933 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 17 10:29:34.934 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR/project-files/dynamips 
+Jun 17 10:29:34.934 GENERAL: working_dir=/home/diogof/Desktop/AR/project-files/dynamips
+Jun 17 10:29:34.935 HYPERVISOR: exec_cmd: ethsw create SW1 
+Jun 17 10:29:36.919 HYPERVISOR: exec_cmd: nio create_udp udp-18277f27-2378-4bfa-a698-1e5464df6ccc 10032 127.0.0.1 10033 
+Jun 17 10:29:36.920 HYPERVISOR: exec_cmd: ethsw add_nio SW1 udp-18277f27-2378-4bfa-a698-1e5464df6ccc 
+Jun 17 10:29:36.937 HYPERVISOR: exec_cmd: ethsw set_access_port SW1 udp-18277f27-2378-4bfa-a698-1e5464df6ccc 1 
+Jun 17 10:29:36.950 HYPERVISOR: exec_cmd: nio create_udp udp-8851a65b-c187-4e23-96d4-80d20959cd1c 10035 127.0.0.1 10034 
+Jun 17 10:29:36.951 HYPERVISOR: exec_cmd: ethsw add_nio SW1 udp-8851a65b-c187-4e23-96d4-80d20959cd1c 
+Jun 17 10:29:36.955 HYPERVISOR: exec_cmd: ethsw set_access_port SW1 udp-8851a65b-c187-4e23-96d4-80d20959cd1c 1 
+Jun 17 10:29:37.002 HYPERVISOR: exec_cmd: nio create_udp udp-f1d3af8e-3506-4bc1-bb3b-356549d9e406 10037 127.0.0.1 10039 
+Jun 17 10:29:37.003 HYPERVISOR: exec_cmd: ethsw add_nio SW1 udp-f1d3af8e-3506-4bc1-bb3b-356549d9e406 
+Jun 17 10:29:37.015 HYPERVISOR: exec_cmd: ethsw set_access_port SW1 udp-f1d3af8e-3506-4bc1-bb3b-356549d9e406 1 
+Jun 17 10:29:37.363 HYPERVISOR: exec_cmd: nio create_udp udp-92477e9c-7631-489c-9ed9-d8734ee5df0c 10068 127.0.0.1 10069 
+Jun 17 10:29:37.369 HYPERVISOR: exec_cmd: ethsw add_nio SW1 udp-92477e9c-7631-489c-9ed9-d8734ee5df0c 
+Jun 17 10:29:37.377 HYPERVISOR: exec_cmd: ethsw set_access_port SW1 udp-92477e9c-7631-489c-9ed9-d8734ee5df0c 1 
+Jun 17 11:36:45.527 HYPERVISOR: exec_cmd: ethsw delete SW1 
+Jun 17 11:36:45.591 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 17 11:36:45.626 HYPERVISOR: Stopped.
+Jun 17 11:36:45.626 GENERAL: reset done.

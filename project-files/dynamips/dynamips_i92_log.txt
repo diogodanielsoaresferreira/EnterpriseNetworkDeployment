@@ -1,0 +1,40 @@
+Jun 01 22:43:32.806 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 01 22:43:32.806 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 45499.
+Jun 01 22:43:32.848 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 01 22:43:32.852 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR v2/project-files/dynamips 
+Jun 01 22:43:32.852 GENERAL: working_dir=/home/diogof/Desktop/AR v2/project-files/dynamips
+Jun 01 22:43:32.856 HYPERVISOR: exec_cmd: vm create OBL3-B 6 c3725 
+Jun 01 22:43:32.856 VM: VM OBL3-B created.
+Jun 01 22:43:32.858 HYPERVISOR: exec_cmd: vm set_con_tcp_port OBL3-B 5005 
+Jun 01 22:43:32.858 HYPERVISOR: exec_cmd: c3725 get_mac_addr OBL3-B 
+Jun 01 22:43:32.859 HYPERVISOR: exec_cmd: vm set_disk0 OBL3-B 1 
+Jun 01 22:43:32.860 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 01 22:43:32.862 HYPERVISOR: exec_cmd: vm slot_add_binding OBL3-B 2 0 NM-1FE-TX 
+Jun 01 22:43:32.862 HYPERVISOR: exec_cmd: vm set_nvram OBL3-B 256 
+Jun 01 22:43:32.864 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 01 22:43:32.866 HYPERVISOR: exec_cmd: vm set_idle_pc OBL3-B 0x61b4cb80 
+Jun 01 22:43:32.869 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 01 22:43:32.872 HYPERVISOR: exec_cmd: vm slot_add_binding OBL3-B 1 0 NM-16ESW 
+Jun 01 22:43:32.874 HYPERVISOR: exec_cmd: c3725 set_mac_addr OBL3-B c206.1f43.0000 
+Jun 01 22:43:32.876 HYPERVISOR: exec_cmd: vm set_ios OBL3-B /home/diogof/GNS3/images/IOS/c3725-advipservicesk9-mz.124-21.image 
+Jun 01 22:43:32.878 HYPERVISOR: exec_cmd: vm set_config OBL3-B configs/i6_startup-config.cfg 
+Jun 01 22:43:34.387 HYPERVISOR: exec_cmd: nio create_udp udp-b18f40a1-0329-45e8-8fc5-d40875d80102 10002 127.0.0.1 10000 
+Jun 01 22:43:34.395 HYPERVISOR: exec_cmd: vm slot_add_nio_binding OBL3-B 1 0 udp-b18f40a1-0329-45e8-8fc5-d40875d80102 
+Jun 01 22:43:34.405 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 01 22:43:34.414 HYPERVISOR: exec_cmd: nio create_udp udp-0ae5c670-5d57-496c-82cf-8ecdab24fc97 10004 127.0.0.1 10005 
+Jun 01 22:43:34.419 HYPERVISOR: exec_cmd: vm slot_add_nio_binding OBL3-B 1 2 udp-0ae5c670-5d57-496c-82cf-8ecdab24fc97 
+Jun 01 22:43:34.424 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 01 22:43:34.482 HYPERVISOR: exec_cmd: nio create_udp udp-d80f7af2-3582-43f5-a8cd-ac0390be4aa4 10010 127.0.0.1 10011 
+Jun 01 22:43:34.487 HYPERVISOR: exec_cmd: vm slot_add_nio_binding OBL3-B 1 3 udp-d80f7af2-3582-43f5-a8cd-ac0390be4aa4 
+Jun 01 22:43:34.489 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 01 22:43:35.127 HYPERVISOR: exec_cmd: nio create_udp udp-7203c7c0-d171-4b62-a920-7b26f34862e7 10065 127.0.0.1 10064 
+Jun 01 22:43:35.129 HYPERVISOR: exec_cmd: vm slot_add_nio_binding OBL3-B 1 1 udp-7203c7c0-d171-4b62-a920-7b26f34862e7 
+Jun 01 22:43:35.130 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 01 22:44:34.488 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 01 22:46:10.981 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 01 22:46:10.994 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 01 22:46:11.034 HYPERVISOR: exec_cmd: vm delete OBL3-B 
+Jun 01 22:46:11.034 VM: VM OBL3-B destroyed.
+Jun 01 22:46:11.036 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 01 22:46:11.488 HYPERVISOR: Stopped.
+Jun 01 22:46:11.488 GENERAL: reset done.

@@ -1,0 +1,40 @@
+Jun 14 17:43:19.119 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 14 17:43:19.119 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 45434.
+Jun 14 17:43:19.161 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 14 17:43:19.162 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR/project-files/dynamips 
+Jun 14 17:43:19.162 GENERAL: working_dir=/home/diogof/Desktop/AR/project-files/dynamips
+Jun 14 17:43:19.164 HYPERVISOR: exec_cmd: vm create AE1L3-B 8 c3725 
+Jun 14 17:43:19.164 VM: VM AE1L3-B created.
+Jun 14 17:43:19.166 HYPERVISOR: exec_cmd: vm set_con_tcp_port AE1L3-B 5007 
+Jun 14 17:43:19.171 HYPERVISOR: exec_cmd: c3725 get_mac_addr AE1L3-B 
+Jun 14 17:43:19.183 HYPERVISOR: exec_cmd: vm get_status AE1L3-B 
+Jun 14 17:43:19.186 HYPERVISOR: exec_cmd: vm slot_add_binding AE1L3-B 1 0 NM-16ESW 
+Jun 14 17:43:19.192 HYPERVISOR: exec_cmd: c3725 set_mac_addr AE1L3-B c208.1f62.0000 
+Jun 14 17:43:19.204 HYPERVISOR: exec_cmd: vm get_status AE1L3-B 
+Jun 14 17:43:19.207 HYPERVISOR: exec_cmd: vm slot_add_binding AE1L3-B 2 0 NM-1FE-TX 
+Jun 14 17:43:19.209 HYPERVISOR: exec_cmd: vm set_disk0 AE1L3-B 1 
+Jun 14 17:43:19.211 HYPERVISOR: exec_cmd: vm set_ios AE1L3-B /home/diogof/GNS3/images/IOS/c3725-advipservicesk9-mz.124-21.image 
+Jun 14 17:43:19.212 HYPERVISOR: exec_cmd: vm set_nvram AE1L3-B 256 
+Jun 14 17:43:19.214 HYPERVISOR: exec_cmd: vm get_status AE1L3-B 
+Jun 14 17:43:19.215 HYPERVISOR: exec_cmd: vm set_idle_pc AE1L3-B 0x61b4cb80 
+Jun 14 17:43:19.217 HYPERVISOR: exec_cmd: vm set_config AE1L3-B configs/i8_startup-config.cfg 
+Jun 14 17:43:20.813 HYPERVISOR: exec_cmd: nio create_udp udp-1e65cafb-6802-439d-9b9c-196516209b88 10022 127.0.0.1 10021 
+Jun 14 17:43:20.813 HYPERVISOR: exec_cmd: vm slot_add_nio_binding AE1L3-B 1 0 udp-1e65cafb-6802-439d-9b9c-196516209b88 
+Jun 14 17:43:20.813 HYPERVISOR: exec_cmd: vm get_status AE1L3-B 
+Jun 14 17:43:20.821 HYPERVISOR: exec_cmd: nio create_udp udp-e2372916-e001-4e2b-9b46-d591e6a01a69 10023 127.0.0.1 10020 
+Jun 14 17:43:20.826 HYPERVISOR: exec_cmd: vm slot_add_nio_binding AE1L3-B 1 3 udp-e2372916-e001-4e2b-9b46-d591e6a01a69 
+Jun 14 17:43:20.827 HYPERVISOR: exec_cmd: vm get_status AE1L3-B 
+Jun 14 17:43:20.837 HYPERVISOR: exec_cmd: nio create_udp udp-f07d9acc-4634-4b89-9cca-eae739bf3ca1 10024 127.0.0.1 10025 
+Jun 14 17:43:20.839 HYPERVISOR: exec_cmd: vm slot_add_nio_binding AE1L3-B 1 2 udp-f07d9acc-4634-4b89-9cca-eae739bf3ca1 
+Jun 14 17:43:20.842 HYPERVISOR: exec_cmd: vm get_status AE1L3-B 
+Jun 14 17:43:21.059 HYPERVISOR: exec_cmd: nio create_udp udp-edd90a07-6dcb-48b0-8fbf-3209e8adf721 10045 127.0.0.1 10044 
+Jun 14 17:43:21.062 HYPERVISOR: exec_cmd: vm slot_add_nio_binding AE1L3-B 1 1 udp-edd90a07-6dcb-48b0-8fbf-3209e8adf721 
+Jun 14 17:43:21.063 HYPERVISOR: exec_cmd: vm get_status AE1L3-B 
+Jun 14 17:52:03.695 HYPERVISOR: exec_cmd: vm extract_config AE1L3-B 
+Jun 14 17:52:04.304 HYPERVISOR: exec_cmd: vm get_status AE1L3-B 
+Jun 14 17:52:04.317 HYPERVISOR: exec_cmd: vm extract_config AE1L3-B 
+Jun 14 17:52:04.367 HYPERVISOR: exec_cmd: vm delete AE1L3-B 
+Jun 14 17:52:04.367 VM: VM AE1L3-B destroyed.
+Jun 14 17:52:04.372 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 14 17:52:04.595 HYPERVISOR: Stopped.
+Jun 14 17:52:04.595 GENERAL: reset done.

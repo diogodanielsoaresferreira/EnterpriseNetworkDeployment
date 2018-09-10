@@ -1,0 +1,70 @@
+Jun 17 10:29:34.807 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 17 10:29:34.807 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 50942.
+Jun 17 10:29:34.828 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 17 10:29:34.835 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR/project-files/dynamips 
+Jun 17 10:29:34.835 GENERAL: working_dir=/home/diogof/Desktop/AR/project-files/dynamips
+Jun 17 10:29:34.846 HYPERVISOR: exec_cmd: vm create ACL3-A 3 c3725 
+Jun 17 10:29:34.847 VM: VM ACL3-A created.
+Jun 17 10:29:34.852 HYPERVISOR: exec_cmd: vm set_con_tcp_port ACL3-A 5002 
+Jun 17 10:29:34.862 HYPERVISOR: exec_cmd: c3725 get_mac_addr ACL3-A 
+Jun 17 10:29:34.865 HYPERVISOR: exec_cmd: c3725 set_mac_addr ACL3-A c203.1f14.0000 
+Jun 17 10:29:34.866 HYPERVISOR: exec_cmd: vm set_nvram ACL3-A 256 
+Jun 17 10:29:34.868 HYPERVISOR: exec_cmd: vm set_disk0 ACL3-A 1 
+Jun 17 10:29:34.869 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:34.871 HYPERVISOR: exec_cmd: vm set_idle_pc ACL3-A 0x60a68e70 
+Jun 17 10:29:34.872 HYPERVISOR: exec_cmd: vm set_ios ACL3-A /home/diogof/GNS3/images/IOS/c3725-advipservicesk9-mz.124-21.image 
+Jun 17 10:29:34.874 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:34.875 HYPERVISOR: exec_cmd: vm slot_add_binding ACL3-A 1 0 NM-16ESW 
+Jun 17 10:29:34.877 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:34.879 HYPERVISOR: exec_cmd: vm slot_add_binding ACL3-A 2 0 NM-1FE-TX 
+Jun 17 10:29:34.882 HYPERVISOR: exec_cmd: vm set_config ACL3-A configs/i3_startup-config.cfg 
+Jun 17 10:29:34.884 HYPERVISOR: exec_cmd: vm set_config ACL3-A configs/i3_startup-config.cfg configs/i3_private-config.cfg 
+Jun 17 10:29:36.746 HYPERVISOR: exec_cmd: nio create_udp udp-67c0aaa5-8f91-454f-b0f5-977a1256f5bb 10015 127.0.0.1 10014 
+Jun 17 10:29:36.747 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 0 udp-67c0aaa5-8f91-454f-b0f5-977a1256f5bb 
+Jun 17 10:29:36.751 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:36.763 HYPERVISOR: exec_cmd: nio create_udp udp-c6d97a78-6b41-4c0e-b4fb-ecd6396368a0 10017 127.0.0.1 10016 
+Jun 17 10:29:36.764 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 3 udp-c6d97a78-6b41-4c0e-b4fb-ecd6396368a0 
+Jun 17 10:29:36.767 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:36.790 HYPERVISOR: exec_cmd: nio create_udp udp-ee5145c5-84a7-40cc-a9f6-ef6ce051e050 10019 127.0.0.1 10018 
+Jun 17 10:29:36.791 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 0 0 udp-ee5145c5-84a7-40cc-a9f6-ef6ce051e050 
+Jun 17 10:29:36.792 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:36.804 HYPERVISOR: exec_cmd: nio create_udp udp-34c58c2d-6e9e-4245-b073-cbc9280cb2b3 10020 127.0.0.1 10021 
+Jun 17 10:29:36.807 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 0 1 udp-34c58c2d-6e9e-4245-b073-cbc9280cb2b3 
+Jun 17 10:29:36.808 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:36.830 HYPERVISOR: exec_cmd: nio create_udp udp-087ae3d9-cad3-460f-b7f3-2255d861c86c 10023 127.0.0.1 10022 
+Jun 17 10:29:36.831 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 4 udp-087ae3d9-cad3-460f-b7f3-2255d861c86c 
+Jun 17 10:29:36.831 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:36.854 HYPERVISOR: exec_cmd: nio create_udp udp-e1ae691c-1046-4cb5-8ebe-d0e84920c065 10025 127.0.0.1 10024 
+Jun 17 10:29:36.855 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 5 udp-e1ae691c-1046-4cb5-8ebe-d0e84920c065 
+Jun 17 10:29:36.855 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:36.888 HYPERVISOR: exec_cmd: nio create_udp udp-12ad103a-0fc8-4592-acf2-341201198578 10029 127.0.0.1 10028 
+Jun 17 10:29:36.889 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 6 udp-12ad103a-0fc8-4592-acf2-341201198578 
+Jun 17 10:29:36.890 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:37.518 HYPERVISOR: exec_cmd: nio create_udp udp-3b2bdbe9-2b9c-404a-a14a-37d12c72a830 10082 127.0.0.1 10083 
+Jun 17 10:29:37.518 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 1 udp-3b2bdbe9-2b9c-404a-a14a-37d12c72a830 
+Jun 17 10:29:37.519 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:37.758 HYPERVISOR: exec_cmd: nio create_udp udp-82b402fd-64fe-4501-b607-4f2d590931cc 10103 127.0.0.1 10102 
+Jun 17 10:29:37.759 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 7 udp-82b402fd-64fe-4501-b607-4f2d590931cc 
+Jun 17 10:29:37.759 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:50.819 HYPERVISOR: exec_cmd: vm set_ghost_status ACL3-A 2 
+Jun 17 10:29:50.820 HYPERVISOR: exec_cmd: vm set_ghost_file ACL3-A c3725-advipservicesk9-mz.124-21.image-128.ghost 
+Jun 17 10:29:50.821 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 10:29:50.821 HYPERVISOR: exec_cmd: vm start ACL3-A 
+Jun 17 10:39:43.428 HYPERVISOR: exec_cmd: nio bind_filter udp-34c58c2d-6e9e-4245-b073-cbc9280cb2b3 2 capture 
+Jun 17 10:39:43.428 HYPERVISOR: exec_cmd: nio setup_filter udp-34c58c2d-6e9e-4245-b073-cbc9280cb2b3 2 en10mb /home/diogof/Desktop/AR/project-files/captures/ACL3-A_FastEthernet0-1_to_RA-B_FastEthernet1-0.pcap 
+Jun 17 10:49:39.724 HYPERVISOR: exec_cmd: nio bind_filter udp-82b402fd-64fe-4501-b607-4f2d590931cc 2 capture 
+Jun 17 10:49:39.725 HYPERVISOR: exec_cmd: nio setup_filter udp-82b402fd-64fe-4501-b607-4f2d590931cc 2 en10mb /home/diogof/Desktop/AR/project-files/captures/ACL3-A_FastEthernet1-7_to_VyOS-117_Ethernet1.pcap 
+Jun 17 11:19:03.281 HYPERVISOR: exec_cmd: nio bind_filter udp-3b2bdbe9-2b9c-404a-a14a-37d12c72a830 2 capture 
+Jun 17 11:19:03.284 HYPERVISOR: exec_cmd: nio setup_filter udp-3b2bdbe9-2b9c-404a-a14a-37d12c72a830 2 en10mb /home/diogof/Desktop/AR/project-files/captures/ACL3-A_FastEthernet1-1_to_SW5_3.pcap 
+Jun 17 11:36:39.799 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 11:36:39.799 HYPERVISOR: exec_cmd: vm stop ACL3-A 
+Jun 17 11:36:40.049 VM: VM ACL3-A shutdown.
+Jun 17 11:36:40.055 HYPERVISOR: exec_cmd: vm extract_config ACL3-A 
+Jun 17 11:36:42.361 HYPERVISOR: exec_cmd: vm extract_config ACL3-A 
+Jun 17 11:36:46.130 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 17 11:36:46.159 HYPERVISOR: exec_cmd: vm extract_config ACL3-A 
+Jun 17 11:36:46.204 HYPERVISOR: exec_cmd: vm delete ACL3-A 
+Jun 17 11:36:46.204 VM: VM ACL3-A destroyed.
+Jun 17 11:36:46.208 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 17 11:36:46.584 HYPERVISOR: Stopped.
+Jun 17 11:36:46.584 GENERAL: reset done.

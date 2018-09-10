@@ -1,0 +1,57 @@
+Jun 17 10:29:35.221 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 17 10:29:35.221 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 40155.
+Jun 17 10:29:35.236 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 17 10:29:35.237 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR/project-files/dynamips 
+Jun 17 10:29:35.237 GENERAL: working_dir=/home/diogof/Desktop/AR/project-files/dynamips
+Jun 17 10:29:35.237 HYPERVISOR: exec_cmd: vm create OBL3-B 18 c3725 
+Jun 17 10:29:35.237 VM: VM OBL3-B created.
+Jun 17 10:29:35.237 HYPERVISOR: exec_cmd: vm set_con_tcp_port OBL3-B 5005 
+Jun 17 10:29:35.238 HYPERVISOR: exec_cmd: c3725 get_mac_addr OBL3-B 
+Jun 17 10:29:35.238 HYPERVISOR: exec_cmd: c3725 set_mac_addr OBL3-B c212.03d8.0000 
+Jun 17 10:29:35.239 HYPERVISOR: exec_cmd: vm set_nvram OBL3-B 256 
+Jun 17 10:29:35.239 HYPERVISOR: exec_cmd: vm set_disk0 OBL3-B 1 
+Jun 17 10:29:35.239 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 17 10:29:35.240 HYPERVISOR: exec_cmd: vm set_idle_pc OBL3-B 0x60a68e70 
+Jun 17 10:29:35.240 HYPERVISOR: exec_cmd: vm set_ios OBL3-B /home/diogof/GNS3/images/IOS/c3725-advipservicesk9-mz.124-21.image 
+Jun 17 10:29:35.241 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 17 10:29:35.241 HYPERVISOR: exec_cmd: vm slot_add_binding OBL3-B 1 0 NM-16ESW 
+Jun 17 10:29:35.241 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 17 10:29:35.242 HYPERVISOR: exec_cmd: vm slot_add_binding OBL3-B 2 0 NM-1FE-TX 
+Jun 17 10:29:35.242 HYPERVISOR: exec_cmd: vm set_config OBL3-B configs/i18_startup-config.cfg 
+Jun 17 10:29:37.562 HYPERVISOR: exec_cmd: nio create_udp udp-b865db8b-d0e9-4693-8da7-faff5d2725fb 10086 127.0.0.1 10087 
+Jun 17 10:29:37.563 HYPERVISOR: exec_cmd: vm slot_add_nio_binding OBL3-B 0 0 udp-b865db8b-d0e9-4693-8da7-faff5d2725fb 
+Jun 17 10:29:37.563 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 17 10:29:37.595 HYPERVISOR: exec_cmd: nio create_udp udp-33d1bb17-2322-4e37-a0b0-251017ef6715 10089 127.0.0.1 10088 
+Jun 17 10:29:37.597 HYPERVISOR: exec_cmd: vm slot_add_nio_binding OBL3-B 0 1 udp-33d1bb17-2322-4e37-a0b0-251017ef6715 
+Jun 17 10:29:37.599 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 17 10:29:37.651 HYPERVISOR: exec_cmd: nio create_udp udp-1cf0da02-ce40-4a48-a54d-23cd60c6df0b 10094 127.0.0.1 10095 
+Jun 17 10:29:37.656 HYPERVISOR: exec_cmd: vm slot_add_nio_binding OBL3-B 1 10 udp-1cf0da02-ce40-4a48-a54d-23cd60c6df0b 
+Jun 17 10:29:37.656 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 17 10:29:43.609 HYPERVISOR: exec_cmd: vm create Ghost 0 c3725 
+Jun 17 10:29:43.609 VM: VM Ghost created.
+Jun 17 10:29:43.610 HYPERVISOR: exec_cmd: vm set_ios Ghost /home/diogof/GNS3/images/IOS/c3725-advipservicesk9-mz.124-21.image 
+Jun 17 10:29:43.610 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Jun 17 10:29:43.611 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost c3725-advipservicesk9-mz.124-21.image-128.ghost 
+Jun 17 10:29:43.612 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Jun 17 10:29:43.613 HYPERVISOR: exec_cmd: vm start Ghost 
+Jun 17 10:29:43.996 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Jun 17 10:29:43.996 HYPERVISOR: exec_cmd: vm stop Ghost 
+Jun 17 10:29:44.049 VM: VM Ghost shutdown.
+Jun 17 10:29:44.050 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Jun 17 10:29:44.050 VM: VM Ghost destroyed.
+Jun 17 10:29:44.054 HYPERVISOR: exec_cmd: vm set_ghost_status OBL3-B 2 
+Jun 17 10:29:44.054 HYPERVISOR: exec_cmd: vm set_ghost_file OBL3-B c3725-advipservicesk9-mz.124-21.image-128.ghost 
+Jun 17 10:29:44.055 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 17 10:29:44.057 HYPERVISOR: exec_cmd: vm start OBL3-B 
+Jun 17 11:36:39.419 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 17 11:36:39.425 HYPERVISOR: exec_cmd: vm stop OBL3-B 
+Jun 17 11:36:39.532 VM: VM OBL3-B shutdown.
+Jun 17 11:36:39.533 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 17 11:36:42.363 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 17 11:36:46.150 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 17 11:36:46.162 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 17 11:36:46.170 HYPERVISOR: exec_cmd: vm delete OBL3-B 
+Jun 17 11:36:46.170 VM: VM OBL3-B destroyed.
+Jun 17 11:36:46.173 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 17 11:36:46.553 HYPERVISOR: Stopped.
+Jun 17 11:36:46.553 GENERAL: reset done.

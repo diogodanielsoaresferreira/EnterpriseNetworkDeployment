@@ -1,0 +1,51 @@
+Jun 01 22:43:08.798 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 01 22:43:08.798 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 57536.
+Jun 01 22:43:08.829 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 01 22:43:08.844 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR v2/project-files/dynamips 
+Jun 01 22:43:08.844 GENERAL: working_dir=/home/diogof/Desktop/AR v2/project-files/dynamips
+Jun 01 22:43:08.853 HYPERVISOR: exec_cmd: vm create RA-B 2 c7200 
+Jun 01 22:43:08.854 VM: VM RA-B created.
+Jun 01 22:43:08.855 HYPERVISOR: exec_cmd: vm set_con_tcp_port RA-B 5001 
+Jun 01 22:43:08.858 HYPERVISOR: exec_cmd: c7200 get_mac_addr RA-B 
+Jun 01 22:43:08.859 HYPERVISOR: exec_cmd: vm get_status RA-B 
+Jun 01 22:43:08.861 HYPERVISOR: exec_cmd: vm slot_add_binding RA-B 0 0 C7200-IO-FE 
+Jun 01 22:43:08.862 HYPERVISOR: exec_cmd: vm set_disk0 RA-B 0 
+Jun 01 22:43:08.863 HYPERVISOR: exec_cmd: vm get_status RA-B 
+Jun 01 22:43:08.864 HYPERVISOR: exec_cmd: vm slot_add_binding RA-B 2 0 PA-2FE-TX 
+Jun 01 22:43:08.866 HYPERVISOR: exec_cmd: vm set_nvram RA-B 512 
+Jun 01 22:43:08.868 HYPERVISOR: exec_cmd: vm set_ram RA-B 512 
+Jun 01 22:43:08.870 HYPERVISOR: exec_cmd: vm get_status RA-B 
+Jun 01 22:43:08.872 HYPERVISOR: exec_cmd: vm set_idle_pc RA-B 0x60608040 
+Jun 01 22:43:08.874 HYPERVISOR: exec_cmd: vm get_status RA-B 
+Jun 01 22:43:08.880 HYPERVISOR: exec_cmd: vm slot_remove_binding RA-B 0 0 
+Jun 01 22:43:08.889 HYPERVISOR: exec_cmd: vm get_status RA-B 
+Jun 01 22:43:08.892 HYPERVISOR: exec_cmd: vm slot_add_binding RA-B 0 0 C7200-IO-2FE 
+Jun 01 22:43:08.894 HYPERVISOR: exec_cmd: vm get_status RA-B 
+Jun 01 22:43:08.895 HYPERVISOR: exec_cmd: vm slot_add_binding RA-B 1 0 PA-2FE-TX 
+Jun 01 22:43:08.896 HYPERVISOR: exec_cmd: c7200 set_mac_addr RA-B ca02.1f03.0000 
+Jun 01 22:43:08.898 HYPERVISOR: exec_cmd: vm set_ios RA-B /home/diogof/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+Jun 01 22:43:08.903 HYPERVISOR: exec_cmd: vm set_config RA-B configs/i2_startup-config.cfg 
+Jun 01 22:43:08.913 HYPERVISOR: exec_cmd: vm set_config RA-B configs/i2_startup-config.cfg configs/i2_private-config.cfg 
+Jun 01 22:43:10.564 HYPERVISOR: exec_cmd: nio create_udp udp-b28741a3-18fc-417b-8cab-9659b999bf1b 10027 127.0.0.1 10023 
+Jun 01 22:43:10.564 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RA-B 1 0 udp-b28741a3-18fc-417b-8cab-9659b999bf1b 
+Jun 01 22:43:10.565 HYPERVISOR: exec_cmd: vm get_status RA-B 
+Jun 01 22:43:10.582 HYPERVISOR: exec_cmd: nio create_udp udp-3bb26ea1-85c6-4045-981f-14072dbe7c57 10029 127.0.0.1 10028 
+Jun 01 22:43:10.583 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RA-B 0 0 udp-3bb26ea1-85c6-4045-981f-14072dbe7c57 
+Jun 01 22:43:10.583 HYPERVISOR: exec_cmd: vm get_status RA-B 
+Jun 01 22:43:10.592 HYPERVISOR: exec_cmd: nio create_udp udp-161262ff-a167-4ad4-86f0-371f1a69f354 10030 127.0.0.1 10032 
+Jun 01 22:43:10.593 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RA-B 0 1 udp-161262ff-a167-4ad4-86f0-371f1a69f354 
+Jun 01 22:43:10.593 HYPERVISOR: exec_cmd: vm get_status RA-B 
+Jun 01 22:43:11.083 HYPERVISOR: exec_cmd: nio create_udp udp-96960f1d-fe39-447f-b551-e4316a69a5fc 10079 127.0.0.1 10078 
+Jun 01 22:43:11.084 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RA-B 1 1 udp-96960f1d-fe39-447f-b551-e4316a69a5fc 
+Jun 01 22:43:11.086 HYPERVISOR: exec_cmd: vm get_status RA-B 
+Jun 01 22:43:11.251 HYPERVISOR: exec_cmd: nio create_udp udp-1165ebb6-8214-4106-9e9a-b6bafc3b8776 10094 127.0.0.1 10096 
+Jun 01 22:43:11.251 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RA-B 2 0 udp-1165ebb6-8214-4106-9e9a-b6bafc3b8776 
+Jun 01 22:43:11.252 HYPERVISOR: exec_cmd: vm get_status RA-B 
+Jun 01 22:43:24.955 HYPERVISOR: exec_cmd: vm extract_config RA-B 
+Jun 01 22:43:25.608 HYPERVISOR: exec_cmd: vm get_status RA-B 
+Jun 01 22:43:25.614 HYPERVISOR: exec_cmd: vm extract_config RA-B 
+Jun 01 22:43:25.619 HYPERVISOR: exec_cmd: vm delete RA-B 
+Jun 01 22:43:25.619 VM: VM RA-B destroyed.
+Jun 01 22:43:25.622 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 01 22:43:25.839 HYPERVISOR: Stopped.
+Jun 01 22:43:25.839 GENERAL: reset done.

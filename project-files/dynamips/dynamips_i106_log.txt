@@ -1,0 +1,36 @@
+Jun 01 22:43:33.332 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 01 22:43:33.332 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 53387.
+Jun 01 22:43:33.352 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 01 22:43:33.353 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR v2/project-files/dynamips 
+Jun 01 22:43:33.353 GENERAL: working_dir=/home/diogof/Desktop/AR v2/project-files/dynamips
+Jun 01 22:43:33.353 HYPERVISOR: exec_cmd: vm create R2 15 c7200 
+Jun 01 22:43:33.353 VM: VM R2 created.
+Jun 01 22:43:33.353 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2 5027 
+Jun 01 22:43:33.354 HYPERVISOR: exec_cmd: c7200 get_mac_addr R2 
+Jun 01 22:43:33.354 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 01 22:43:33.354 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-FE 
+Jun 01 22:43:33.355 HYPERVISOR: exec_cmd: vm set_disk0 R2 0 
+Jun 01 22:43:33.355 HYPERVISOR: exec_cmd: vm set_nvram R2 512 
+Jun 01 22:43:33.356 HYPERVISOR: exec_cmd: vm set_ram R2 512 
+Jun 01 22:43:33.356 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 01 22:43:33.356 HYPERVISOR: exec_cmd: vm set_idle_pc R2 0x60608040 
+Jun 01 22:43:33.357 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 01 22:43:33.357 HYPERVISOR: exec_cmd: vm slot_remove_binding R2 0 0 
+Jun 01 22:43:33.357 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 01 22:43:33.358 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-2FE 
+Jun 01 22:43:33.358 HYPERVISOR: exec_cmd: c7200 set_mac_addr R2 ca0f.29fb.0000 
+Jun 01 22:43:33.359 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 01 22:43:33.359 HYPERVISOR: exec_cmd: vm slot_add_binding R2 1 0 PA-2FE-TX 
+Jun 01 22:43:33.360 HYPERVISOR: exec_cmd: vm set_ios R2 /home/diogof/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+Jun 01 22:43:33.360 HYPERVISOR: exec_cmd: vm set_config R2 configs/i15_startup-config.cfg 
+Jun 01 22:43:35.451 HYPERVISOR: exec_cmd: nio create_udp udp-9ead6ce6-2842-4546-92f5-f77a4e9c36d6 10097 127.0.0.1 10096 
+Jun 01 22:43:35.452 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 0 udp-9ead6ce6-2842-4546-92f5-f77a4e9c36d6 
+Jun 01 22:43:35.452 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 01 22:44:34.496 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 01 22:46:10.989 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 01 22:46:10.997 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 01 22:46:11.002 HYPERVISOR: exec_cmd: vm delete R2 
+Jun 01 22:46:11.002 VM: VM R2 destroyed.
+Jun 01 22:46:11.005 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 01 22:46:11.013 HYPERVISOR: Stopped.
+Jun 01 22:46:11.013 GENERAL: reset done.

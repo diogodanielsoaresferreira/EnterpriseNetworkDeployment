@@ -1,0 +1,65 @@
+DHCPv4 README
+
+-> Interface bridge adapter no VMWare
+Configurar IP da VM como 10.10.0.6/16
+
+Ir a /etc/default/isc-dhcp-server e pôr INTERFACES="eth0" (ou a interface usada com ip 10.10.0.6)
+
+Adicionar a /etc/network/interfaces
+---------------------------------
+auto enp0s3
+iface eth0 inet static
+	address 10.10.0.6
+	netmask 255.255.0.0
+	gateway 10.10.0.1
+	dns-nameservers 200.1.0.4
+
+iface eth0 inet static
+	address 2002:A:A:A00::6
+	netmask 64
+	gateway 2002:A:A00::1
+	dns-nameservers 2002:A:A:A00::4
+--------------------------------
+
+Adicionar a /etc/dhcp/dhcp.conf
+-----------------------------------
+
+option domain-name-servers 10.10.0.6;
+
+subnet 10.5.0.0 netmask 255.255.255.0 {
+	range 10.5.0.10 10.5.0.240;
+	option routers 10.5.0.253, 10.5.0.254;
+}
+
+subnet 10.1.0.0 netmask 255.255.255.0 {
+	range 10.1.0.10 10.1.0.240;
+	option routers 10.1.0.253, 10.1.0.254;
+}
+subnet 10.5.1.0 netmask 255.255.255.0 {
+	range 10.5.1.10 10.5.1.240;
+	option routers 10.5.1.253, 10.5.1.254;
+}
+subnet 10.1.1.0 netmask 255.255.255.0 {
+	range 10.1.1.10 10.1.1.240;
+	option routers 10.1.1.253, 10.1.1.254;
+}
+subnet 10.10.0.0 netmask 255.255.0.0 {
+	range 10.10.0.10 10.10.0.240;
+	option routers 10.10.0.1, 10.10.0.2;
+}
+
+---------------------------------------
+
+Em todos os routers ligados a terminais com dhcp, fazer:
+
+> conf t
+> service dhcp
+> int vlan 4(ou 5, ou o que for...)
+> ip helper-address 10.10.0.6
+
+------------------------------------
+
+Ativar o serviço no server:
+> sudo service isc-dhcp-server start
+
+Se houver erros, ver /var/log/syslog

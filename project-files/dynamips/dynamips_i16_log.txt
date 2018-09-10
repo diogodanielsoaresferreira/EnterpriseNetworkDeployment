@@ -1,0 +1,58 @@
+Jun 17 10:29:35.098 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 17 10:29:35.098 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 40319.
+Jun 17 10:29:35.121 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 17 10:29:35.121 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR/project-files/dynamips 
+Jun 17 10:29:35.121 GENERAL: working_dir=/home/diogof/Desktop/AR/project-files/dynamips
+Jun 17 10:29:35.122 HYPERVISOR: exec_cmd: vm create ESW1 14 c3725 
+Jun 17 10:29:35.122 VM: VM ESW1 created.
+Jun 17 10:29:35.123 HYPERVISOR: exec_cmd: vm set_con_tcp_port ESW1 5025 
+Jun 17 10:29:35.123 HYPERVISOR: exec_cmd: c3725 get_mac_addr ESW1 
+Jun 17 10:29:35.123 HYPERVISOR: exec_cmd: c3725 set_mac_addr ESW1 c20e.39ff.0000 
+Jun 17 10:29:35.124 HYPERVISOR: exec_cmd: vm set_nvram ESW1 256 
+Jun 17 10:29:35.124 HYPERVISOR: exec_cmd: vm set_disk0 ESW1 1 
+Jun 17 10:29:35.125 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Jun 17 10:29:35.125 HYPERVISOR: exec_cmd: vm set_idle_pc ESW1 0x60a68e70 
+Jun 17 10:29:35.126 HYPERVISOR: exec_cmd: vm set_ios ESW1 /home/diogof/GNS3/images/IOS/c3725-advipservicesk9-mz.124-21.image 
+Jun 17 10:29:35.126 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Jun 17 10:29:35.126 HYPERVISOR: exec_cmd: vm slot_add_binding ESW1 1 0 NM-16ESW 
+Jun 17 10:29:35.127 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Jun 17 10:29:35.128 HYPERVISOR: exec_cmd: vm slot_add_binding ESW1 2 0 NM-1FE-TX 
+Jun 17 10:29:35.129 HYPERVISOR: exec_cmd: vm set_config ESW1 configs/i14_startup-config.cfg 
+Jun 17 10:29:37.414 HYPERVISOR: exec_cmd: nio create_udp udp-808241a8-90d4-472a-94f1-aa75cf4dc6a2 10071 127.0.0.1 10070 
+Jun 17 10:29:37.414 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW1 1 2 udp-808241a8-90d4-472a-94f1-aa75cf4dc6a2 
+Jun 17 10:29:37.415 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Jun 17 10:29:37.428 HYPERVISOR: exec_cmd: nio create_udp udp-45f96d66-9a25-4aaa-a2ec-766f7565bfad 10073 127.0.0.1 10072 
+Jun 17 10:29:37.430 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW1 1 3 udp-45f96d66-9a25-4aaa-a2ec-766f7565bfad 
+Jun 17 10:29:37.430 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Jun 17 10:29:37.446 HYPERVISOR: exec_cmd: nio create_udp udp-d185ddc6-f838-4508-bf7e-4ff69ee4eee7 10075 127.0.0.1 10074 
+Jun 17 10:29:37.447 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW1 1 5 udp-d185ddc6-f838-4508-bf7e-4ff69ee4eee7 
+Jun 17 10:29:37.447 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Jun 17 10:29:37.686 HYPERVISOR: exec_cmd: nio create_udp udp-6db339af-1670-42a2-b881-417d7e02cd9f 10097 127.0.0.1 10096 
+Jun 17 10:29:37.687 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW1 1 1 udp-6db339af-1670-42a2-b881-417d7e02cd9f 
+Jun 17 10:29:37.691 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Jun 17 10:29:37.703 HYPERVISOR: exec_cmd: nio create_udp udp-2f65d347-1646-47e2-afd0-43b9348feefa 10099 127.0.0.1 10098 
+Jun 17 10:29:37.703 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW1 1 0 udp-2f65d347-1646-47e2-afd0-43b9348feefa 
+Jun 17 10:29:37.704 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Jun 17 10:29:37.714 HYPERVISOR: exec_cmd: nio create_udp udp-82a530ee-ac5b-4f23-8258-f1971cf6db59 10100 127.0.0.1 10101 
+Jun 17 10:29:37.714 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW1 1 4 udp-82a530ee-ac5b-4f23-8258-f1971cf6db59 
+Jun 17 10:29:37.715 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Jun 17 10:41:39.148 HYPERVISOR: exec_cmd: vm set_ghost_status ESW1 2 
+Jun 17 10:41:39.151 HYPERVISOR: exec_cmd: vm set_ghost_file ESW1 c3725-advipservicesk9-mz.124-21.image-128.ghost 
+Jun 17 10:41:39.151 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Jun 17 10:41:39.152 HYPERVISOR: exec_cmd: vm start ESW1 
+Jun 17 10:49:08.018 HYPERVISOR: exec_cmd: nio bind_filter udp-6db339af-1670-42a2-b881-417d7e02cd9f 2 capture 
+Jun 17 10:49:08.020 HYPERVISOR: exec_cmd: nio setup_filter udp-6db339af-1670-42a2-b881-417d7e02cd9f 2 en10mb /home/diogof/Desktop/AR/project-files/captures/ESW1_FastEthernet1-1_to_DHCPv4-DHCPv6-Private-DNSSEC_Ethernet0.pcap 
+Jun 17 11:11:14.249 HYPERVISOR: exec_cmd: nio bind_filter udp-82a530ee-ac5b-4f23-8258-f1971cf6db59 2 capture 
+Jun 17 11:11:14.259 HYPERVISOR: exec_cmd: nio setup_filter udp-82a530ee-ac5b-4f23-8258-f1971cf6db59 2 en10mb /home/diogof/Desktop/AR/project-files/captures/ESW1_FastEthernet1-4_to_VyOS-117_Ethernet0.pcap 
+Jun 17 11:36:37.605 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Jun 17 11:36:37.605 HYPERVISOR: exec_cmd: vm stop ESW1 
+Jun 17 11:36:37.780 VM: VM ESW1 shutdown.
+Jun 17 11:36:37.782 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Jun 17 11:36:42.362 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Jun 17 11:36:46.133 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Jun 17 11:36:46.160 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Jun 17 11:36:46.168 HYPERVISOR: exec_cmd: vm delete ESW1 
+Jun 17 11:36:46.168 VM: VM ESW1 destroyed.
+Jun 17 11:36:46.172 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 17 11:36:46.437 HYPERVISOR: Stopped.
+Jun 17 11:36:46.437 GENERAL: reset done.

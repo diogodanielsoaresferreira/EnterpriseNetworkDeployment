@@ -1,0 +1,36 @@
+----------------------
+/etc/dhcp/dhcpd6.conf
+-----------------------
+default-lease-time 600;
+max-lease-time 7200;
+log-facility local7;
+
+
+subnet6 2002:A:A:A00::/64 {
+	range6 2002:A:A:A00::10 2002:A:A:A00::FFF0;
+	option dhcp6.name-servers 2002:A:A:A00::6;
+}
+
+subnet6 2002:A:A:500::/64 {
+	range6 2002:A:A:500::10 2002:A:A:500::FFF0;
+	option dhcp6.name-servers 2002:A:A:A00::6;
+}
+
+subnet6 2002:A:A:100::/64 {
+	range6 2002:A:A:100::10 2002:A:A:100::FFF0;
+	option dhcp6.name-servers 2002:A:A:A00::6;
+}
+
+subnet6 2002:A:A:501::/64 {
+	range6 2002:A:A:501::10 2002:A:A:501::FFF0;
+	option dhcp6.name-servers 2002:A:A:A00::6;
+}
+
+subnet6 2002:A:A:101::/64 {
+	range6 2002:A:A:101::10 2002:A:A:101::FFF0;
+	option dhcp6.name-servers 2002:A:A:A00::6;
+}
+
+----------------------
+
+Para correr, fazer sudo /usr/sbin/dhcpd -6 -d -cf /etc/dhcp/dhcpd6.conf enp0s3

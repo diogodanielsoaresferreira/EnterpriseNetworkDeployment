@@ -1,0 +1,53 @@
+Jun 16 18:27:19.093 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Jun 16 18:27:19.093 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 50928.
+Jun 16 18:27:19.108 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 16 18:27:19.113 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\KOIKLO\Desktop\projeto-ar-2017\AR\project-files\dynamips 
+Jun 16 18:27:19.113 GENERAL: working_dir=C:\Users\KOIKLO\Desktop\projeto-ar-2017\AR\project-files\dynamips
+Jun 16 18:27:19.118 HYPERVISOR: exec_cmd: vm create ESW2 18 c3725 
+Jun 16 18:27:19.122 VM: VM ESW2 created.
+Jun 16 18:27:19.126 HYPERVISOR: exec_cmd: vm set_con_tcp_port ESW2 5005 
+Jun 16 18:27:19.131 HYPERVISOR: exec_cmd: c3725 get_mac_addr ESW2 
+Jun 16 18:27:19.135 HYPERVISOR: exec_cmd: vm set_ios ESW2 C:/Users/KOIKLO/GNS3/images/IOS/c3725-advipservicesk9-mz.124-21.image 
+Jun 16 18:27:19.140 HYPERVISOR: exec_cmd: vm set_exec_area ESW2 64 
+Jun 16 18:27:19.144 HYPERVISOR: exec_cmd: vm set_nvram ESW2 256 
+Jun 16 18:27:19.151 HYPERVISOR: exec_cmd: vm set_disk0 ESW2 1 
+Jun 16 18:27:19.155 HYPERVISOR: exec_cmd: vm get_status ESW2 
+Jun 16 18:27:19.159 HYPERVISOR: exec_cmd: vm slot_add_binding ESW2 1 0 NM-16ESW 
+Jun 16 18:27:19.164 HYPERVISOR: exec_cmd: vm get_status ESW2 
+Jun 16 18:27:19.168 HYPERVISOR: exec_cmd: vm slot_add_binding ESW2 2 0 NM-1FE-TX 
+Jun 16 18:27:19.175 HYPERVISOR: exec_cmd: vm set_config ESW2 configs/i18_startup-config.cfg 
+Jun 16 18:27:26.605 HYPERVISOR: exec_cmd: vm rename ESW2 OBL3-B 
+Jun 16 18:27:47.278 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 16 18:32:17.617 HYPERVISOR: exec_cmd: nio create_udp udp-36e512eb-bba0-4a8c-b146-8675ec4d5595 10002 127.0.0.1 10003 
+Jun 16 18:32:17.630 HYPERVISOR: exec_cmd: vm slot_add_nio_binding OBL3-B 0 0 udp-36e512eb-bba0-4a8c-b146-8675ec4d5595 
+Jun 16 18:32:17.636 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 16 18:32:26.057 HYPERVISOR: exec_cmd: nio create_udp udp-a2e423e4-51f6-471b-a884-ded8981d9393 10017 127.0.0.1 10016 
+Jun 16 18:32:26.065 HYPERVISOR: exec_cmd: vm slot_add_nio_binding OBL3-B 0 1 udp-a2e423e4-51f6-471b-a884-ded8981d9393 
+Jun 16 18:32:26.074 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 16 18:32:34.740 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 16 18:35:29.188 HYPERVISOR: exec_cmd: nio create_udp udp-1f0d548c-6e97-4303-95ac-b7b52cabe787 10020 127.0.0.1 10021 
+Jun 16 18:35:29.210 HYPERVISOR: exec_cmd: vm slot_add_nio_binding OBL3-B 1 10 udp-1f0d548c-6e97-4303-95ac-b7b52cabe787 
+Jun 16 18:35:29.225 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 16 18:37:23.536 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 16 18:37:23.556 HYPERVISOR: exec_cmd: vm set_idle_pc OBL3-B 0x611454bc 
+Jun 16 18:38:07.017 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 16 18:38:07.040 HYPERVISOR: exec_cmd: vm set_idle_pc OBL3-B 0x60a68e70 
+Jun 16 18:53:54.345 HYPERVISOR: exec_cmd: vm set_ghost_status OBL3-B 2 
+Jun 16 18:53:54.349 HYPERVISOR: exec_cmd: vm set_ghost_file OBL3-B c3725-advipservicesk9-mz.124-21.image-128.ghost 
+Jun 16 18:53:54.354 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 16 18:53:54.360 HYPERVISOR: exec_cmd: vm start OBL3-B 
+Jun 16 18:57:59.088 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 16 18:58:18.024 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 16 19:03:07.354 HYPERVISOR: exec_cmd: nio bind_filter udp-1f0d548c-6e97-4303-95ac-b7b52cabe787 2 capture 
+Jun 16 19:03:07.359 HYPERVISOR: exec_cmd: nio setup_filter udp-1f0d548c-6e97-4303-95ac-b7b52cabe787 2 en10mb C:\Users\KOIKLO\Desktop\projeto-ar-2017\AR\project-files\captures\OBL3-B_FastEthernet1-10_to_SW4_2.pcap 
+Jun 16 19:03:18.291 HYPERVISOR: exec_cmd: nio unbind_filter udp-1f0d548c-6e97-4303-95ac-b7b52cabe787 2 
+Jun 16 19:03:20.169 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 16 19:17:15.797 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 16 19:17:18.115 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 16 19:17:18.221 HYPERVISOR: exec_cmd: vm stop OBL3-B 
+Jun 16 19:17:18.404 VM: VM OBL3-B shutdown.
+Jun 16 19:17:18.803 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 16 19:17:22.808 HYPERVISOR: exec_cmd: vm extract_config OBL3-B 
+Jun 16 19:25:42.367 HYPERVISOR: exec_cmd: vm get_status OBL3-B 
+Jun 16 19:25:42.384 HYPERVISOR: exec_cmd: vm slot_remove_nio_binding OBL3-B 1 10 
+Jun 16 19:25:42.402 HYPERVISOR: exec_cmd: nio delete udp-1f0d548c-6e97-4303-95ac-b7b52cabe787 

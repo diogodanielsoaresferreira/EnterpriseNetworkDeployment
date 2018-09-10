@@ -1,0 +1,61 @@
+Jun 17 10:29:34.613 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 17 10:29:34.613 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 59822.
+Jun 17 10:29:34.656 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 17 10:29:34.656 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR/project-files/dynamips 
+Jun 17 10:29:34.656 GENERAL: working_dir=/home/diogof/Desktop/AR/project-files/dynamips
+Jun 17 10:29:34.657 HYPERVISOR: exec_cmd: vm create RA-A 1 c7200 
+Jun 17 10:29:34.657 VM: VM RA-A created.
+Jun 17 10:29:34.663 HYPERVISOR: exec_cmd: vm set_con_tcp_port RA-A 5000 
+Jun 17 10:29:34.663 HYPERVISOR: exec_cmd: c7200 get_mac_addr RA-A 
+Jun 17 10:29:34.663 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 10:29:34.665 HYPERVISOR: exec_cmd: vm slot_add_binding RA-A 0 0 C7200-IO-FE 
+Jun 17 10:29:34.671 HYPERVISOR: exec_cmd: c7200 set_mac_addr RA-A ca01.1ef4.0000 
+Jun 17 10:29:34.681 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 10:29:34.684 HYPERVISOR: exec_cmd: vm slot_remove_binding RA-A 0 0 
+Jun 17 10:29:34.697 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 10:29:34.699 HYPERVISOR: exec_cmd: vm slot_add_binding RA-A 0 0 C7200-IO-2FE 
+Jun 17 10:29:34.700 HYPERVISOR: exec_cmd: vm set_nvram RA-A 512 
+Jun 17 10:29:34.701 HYPERVISOR: exec_cmd: vm set_disk0 RA-A 0 
+Jun 17 10:29:34.702 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 10:29:34.703 HYPERVISOR: exec_cmd: vm set_idle_pc RA-A 0x60608040 
+Jun 17 10:29:34.703 HYPERVISOR: exec_cmd: vm set_ios RA-A /home/diogof/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+Jun 17 10:29:34.708 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 10:29:34.716 HYPERVISOR: exec_cmd: vm slot_add_binding RA-A 1 0 PA-2FE-TX 
+Jun 17 10:29:34.721 HYPERVISOR: exec_cmd: vm set_ram RA-A 512 
+Jun 17 10:29:34.725 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 10:29:34.728 HYPERVISOR: exec_cmd: vm slot_add_binding RA-A 2 0 PA-2FE-TX 
+Jun 17 10:29:34.729 HYPERVISOR: exec_cmd: vm set_config RA-A configs/i1_startup-config.cfg 
+Jun 17 10:29:34.730 HYPERVISOR: exec_cmd: vm set_config RA-A configs/i1_startup-config.cfg configs/i1_private-config.cfg 
+Jun 17 10:29:36.621 HYPERVISOR: exec_cmd: nio create_udp udp-a23c913e-3c0d-4315-859e-fbc05bea10c8 10003 127.0.0.1 10002 
+Jun 17 10:29:36.628 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RA-A 1 0 udp-a23c913e-3c0d-4315-859e-fbc05bea10c8 
+Jun 17 10:29:36.637 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 10:29:36.674 HYPERVISOR: exec_cmd: nio create_udp udp-f8442b11-bbb0-49e6-9f04-193c96adbf80 10006 127.0.0.1 10007 
+Jun 17 10:29:36.675 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RA-A 0 0 udp-f8442b11-bbb0-49e6-9f04-193c96adbf80 
+Jun 17 10:29:36.675 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 10:29:36.782 HYPERVISOR: exec_cmd: nio create_udp udp-408fca2e-c495-476c-8e68-b8c6fd7544ec 10018 127.0.0.1 10019 
+Jun 17 10:29:36.783 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RA-A 0 1 udp-408fca2e-c495-476c-8e68-b8c6fd7544ec 
+Jun 17 10:29:36.783 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 10:29:37.346 HYPERVISOR: exec_cmd: nio create_udp udp-238b2438-8396-441f-bdad-95a6aea9969d 10065 127.0.0.1 10064 
+Jun 17 10:29:37.346 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RA-A 1 1 udp-238b2438-8396-441f-bdad-95a6aea9969d 
+Jun 17 10:29:37.347 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 10:29:37.474 HYPERVISOR: exec_cmd: nio create_udp udp-71ba0f8c-1b94-4a59-b181-3c6fb13f644a 10078 127.0.0.1 10079 
+Jun 17 10:29:37.478 HYPERVISOR: exec_cmd: vm slot_add_nio_binding RA-A 2 0 udp-71ba0f8c-1b94-4a59-b181-3c6fb13f644a 
+Jun 17 10:29:37.480 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 10:29:58.911 HYPERVISOR: exec_cmd: vm set_ghost_status RA-A 2 
+Jun 17 10:29:58.911 HYPERVISOR: exec_cmd: vm set_ghost_file RA-A c7200-adventerprisek9-mz.151-4.M2.image-512.ghost 
+Jun 17 10:29:58.912 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 10:29:58.912 HYPERVISOR: exec_cmd: vm start RA-A 
+Jun 17 10:39:28.956 HYPERVISOR: exec_cmd: nio bind_filter udp-408fca2e-c495-476c-8e68-b8c6fd7544ec 2 capture 
+Jun 17 10:39:28.956 HYPERVISOR: exec_cmd: nio setup_filter udp-408fca2e-c495-476c-8e68-b8c6fd7544ec 2 en10mb /home/diogof/Desktop/AR/project-files/captures/RA-A_FastEthernet0-1_to_ACL3-A_FastEthernet0-0.pcap 
+Jun 17 11:36:39.891 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 11:36:39.892 HYPERVISOR: exec_cmd: vm stop RA-A 
+Jun 17 11:36:40.065 VM: VM RA-A shutdown.
+Jun 17 11:36:40.069 HYPERVISOR: exec_cmd: vm extract_config RA-A 
+Jun 17 11:36:42.360 HYPERVISOR: exec_cmd: vm extract_config RA-A 
+Jun 17 11:36:46.155 HYPERVISOR: exec_cmd: vm get_status RA-A 
+Jun 17 11:36:46.164 HYPERVISOR: exec_cmd: vm extract_config RA-A 
+Jun 17 11:36:46.206 HYPERVISOR: exec_cmd: vm delete RA-A 
+Jun 17 11:36:46.206 VM: VM RA-A destroyed.
+Jun 17 11:36:46.211 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 17 11:36:46.435 HYPERVISOR: Stopped.
+Jun 17 11:36:46.435 GENERAL: reset done.

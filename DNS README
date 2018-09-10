@@ -1,0 +1,91 @@
+Adicionar a /etc/network/interfaces
+---------------------------------
+auto eth0
+iface eth0 inet static
+	address 200.1.0.4
+	netmask 255.255.128.0
+	gateway 200.1.0.1
+
+iface eth0 inet6 static
+	address 2002:A:A:A00::4
+	netmask 64
+	gateway 2002:A:A:A00::1
+--------------------------------
+
+
+Ficheiro de log em /var/log/daemon.log
+-----------------------------
+zone "metaltech.com" in{
+	type master;
+	file "/etc/bind/db.metaltech.com";
+};
+
+zone "metaltech.pt" in{
+	type master;
+	file "/etc/bind/db.metaltech.pt";
+};
+-----------------------------------
+
+/etc/bind/db.metaltech.com
+--------------------------------
+$TTL 604800
+$ORIGIN metaltech.com.
+@		IN 		SOA		ns1.metaltech.com. adm.metaltech.com. (
+								2		; Serial
+							604800		; Refresh
+							86400		; Retry
+							2419200		; Expire
+							604800	)	; Negative Cache TTL
+
+		IN 		NS 		ns1.metaltech.com.
+		IN 		A 		200.1.0.4
+		IN 		AAAA	2002:A:A:A00::4
+		IN 		MX		10		mail
+ns1		IN 		A 		200.1.0.4
+mail	IN 		A 		200.1.0.4
+www		IN 		A 		200.1.0.4
+------------------------------------
+
+/etc/bind/db.metaltech.pt
+-----------------------------------
+$TTL 604800
+$ORIGIN metaltech.pt.
+@		IN 		SOA		ns1.metaltech.pt. adm.metaltech.pt. (
+								2		; Serial
+							604800		; Refresh
+							86400		; Retry
+							2419200		; Expire
+							604800	)	; Negative Cache TTL
+
+		IN 		NS 		ns1.metaltech.pt.
+		IN 		A 		200.1.0.3
+		IN 		AAAA	2002:A:A:A00::3
+		IN 		MX		10		mail
+ns1		IN 		A 		200.1.0.3
+mail	IN 		A 		200.1.0.3
+www		IN 		A 		200.1.0.3
+-----------------------------------
+/etc/bind/named.conf.options
+---------------------------------
+options{
+	directory "/var/cache/bind";
+	version "not currently available";
+	recursion no;
+	allow-query { any; };
+	auth-nxdomain no;
+	listen-on port 53 { any; };
+	listen-on-v6 port 53 { any; };
+}
+
+-------------------------------
+
+Para registar as chaves (DNSSEC):
+
+> dnssec-keygen -a RSASHA1 -b 2048 -n ZONE metaltech.com
+> dnssec-keygen -a RSASHA1 -b 2048 -n ZONE -f KSK metaltech.com
+> Copiar o conteúdo das duas chaves criadas para /etc/bind/etc.metaltech.com
+> dnssec-signzone -g -l dlv.isc.org -o metaltech.com -N INCREMENT db.metaltech.com
+
+Fazer o mesmo para metaltech.pt
+
+Para correr, fazer sudo service bind9 restart

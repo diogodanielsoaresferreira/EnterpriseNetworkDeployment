@@ -1,0 +1,58 @@
+Jun 01 22:43:32.841 HYPERVISOR: Release 0.2.16-amd64/Linux (tag 2015060118)
+Jun 01 22:43:32.841 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 47925.
+Jun 01 22:43:32.858 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 01 22:43:32.859 HYPERVISOR: exec_cmd: hypervisor working_dir /home/diogof/Desktop/AR v2/project-files/dynamips 
+Jun 01 22:43:32.859 GENERAL: working_dir=/home/diogof/Desktop/AR v2/project-files/dynamips
+Jun 01 22:43:32.860 HYPERVISOR: exec_cmd: vm create ACL3-A 3 c3725 
+Jun 01 22:43:32.860 VM: VM ACL3-A created.
+Jun 01 22:43:32.861 HYPERVISOR: exec_cmd: vm set_con_tcp_port ACL3-A 5002 
+Jun 01 22:43:32.862 HYPERVISOR: exec_cmd: c3725 get_mac_addr ACL3-A 
+Jun 01 22:43:32.863 HYPERVISOR: exec_cmd: vm set_disk0 ACL3-A 1 
+Jun 01 22:43:32.865 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:43:32.868 HYPERVISOR: exec_cmd: vm slot_add_binding ACL3-A 2 0 NM-1FE-TX 
+Jun 01 22:43:32.871 HYPERVISOR: exec_cmd: vm set_nvram ACL3-A 256 
+Jun 01 22:43:32.873 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:43:32.875 HYPERVISOR: exec_cmd: vm set_idle_pc ACL3-A 0x61b4cb80 
+Jun 01 22:43:32.877 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:43:32.879 HYPERVISOR: exec_cmd: vm slot_add_binding ACL3-A 1 0 NM-16ESW 
+Jun 01 22:43:32.887 HYPERVISOR: exec_cmd: c3725 set_mac_addr ACL3-A c203.1f14.0000 
+Jun 01 22:43:32.898 HYPERVISOR: exec_cmd: vm set_ios ACL3-A /home/diogof/GNS3/images/IOS/c3725-advipservicesk9-mz.124-21.image 
+Jun 01 22:43:32.901 HYPERVISOR: exec_cmd: vm set_config ACL3-A configs/i3_startup-config.cfg 
+Jun 01 22:43:34.405 HYPERVISOR: exec_cmd: nio create_udp udp-5de6475f-f5b8-443a-84bc-d4bfdcb6e18a 10003 127.0.0.1 10001 
+Jun 01 22:43:34.406 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 1 udp-5de6475f-f5b8-443a-84bc-d4bfdcb6e18a 
+Jun 01 22:43:34.415 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:43:34.434 HYPERVISOR: exec_cmd: nio create_udp udp-1a69c836-8ccf-43eb-9444-5474f72d08ef 10005 127.0.0.1 10004 
+Jun 01 22:43:34.435 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 2 udp-1a69c836-8ccf-43eb-9444-5474f72d08ef 
+Jun 01 22:43:34.435 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:43:34.460 HYPERVISOR: exec_cmd: nio create_udp udp-5ce7b462-20b5-4cf2-8201-efa6b6e27e91 10007 127.0.0.1 10006 
+Jun 01 22:43:34.466 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 0 0 udp-5ce7b462-20b5-4cf2-8201-efa6b6e27e91 
+Jun 01 22:43:34.472 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:43:34.534 HYPERVISOR: exec_cmd: nio create_udp udp-74f374fa-aa5a-44c8-b53f-80dd25157c79 10014 127.0.0.1 10012 
+Jun 01 22:43:34.538 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 0 udp-74f374fa-aa5a-44c8-b53f-80dd25157c79 
+Jun 01 22:43:34.538 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:43:34.574 HYPERVISOR: exec_cmd: nio create_udp udp-3e01ecd5-ce68-4358-b8f8-3e5b3b0d9d5b 10015 127.0.0.1 10017 
+Jun 01 22:43:34.575 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 0 1 udp-3e01ecd5-ce68-4358-b8f8-3e5b3b0d9d5b 
+Jun 01 22:43:34.577 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:43:34.682 HYPERVISOR: exec_cmd: nio create_udp udp-87776471-944a-4ef3-95ac-80e851a2c66c 10024 127.0.0.1 10022 
+Jun 01 22:43:34.683 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 3 udp-87776471-944a-4ef3-95ac-80e851a2c66c 
+Jun 01 22:43:34.683 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:43:34.746 HYPERVISOR: exec_cmd: nio create_udp udp-6eb02055-24be-4b87-8677-7c35c585b6b7 10029 127.0.0.1 10028 
+Jun 01 22:43:34.747 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 4 udp-6eb02055-24be-4b87-8677-7c35c585b6b7 
+Jun 01 22:43:34.748 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:43:34.778 HYPERVISOR: exec_cmd: nio create_udp udp-79a17514-8576-4299-b7b4-3d0ad9bce692 10035 127.0.0.1 10032 
+Jun 01 22:43:34.779 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 5 udp-79a17514-8576-4299-b7b4-3d0ad9bce692 
+Jun 01 22:43:34.780 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:43:34.838 HYPERVISOR: exec_cmd: nio create_udp udp-8fed048d-6f0e-4bf4-88b7-2ef805ed4b7d 10040 127.0.0.1 10038 
+Jun 01 22:43:34.838 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 6 udp-8fed048d-6f0e-4bf4-88b7-2ef805ed4b7d 
+Jun 01 22:43:34.839 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:43:35.377 HYPERVISOR: exec_cmd: nio create_udp udp-602ff42d-3c46-4ccf-909d-280dcea23017 10090 127.0.0.1 10091 
+Jun 01 22:43:35.378 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ACL3-A 1 7 udp-602ff42d-3c46-4ccf-909d-280dcea23017 
+Jun 01 22:43:35.379 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:44:34.493 HYPERVISOR: exec_cmd: vm extract_config ACL3-A 
+Jun 01 22:46:10.982 HYPERVISOR: exec_cmd: vm get_status ACL3-A 
+Jun 01 22:46:10.995 HYPERVISOR: exec_cmd: vm extract_config ACL3-A 
+Jun 01 22:46:11.039 HYPERVISOR: exec_cmd: vm delete ACL3-A 
+Jun 01 22:46:11.039 VM: VM ACL3-A destroyed.
+Jun 01 22:46:11.043 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 01 22:46:11.510 HYPERVISOR: Stopped.
+Jun 01 22:46:11.511 GENERAL: reset done.
